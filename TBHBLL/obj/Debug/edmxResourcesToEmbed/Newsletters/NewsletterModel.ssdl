@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NewsletterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="NewsletterModelStoreContainer">
+    <EntitySet Name="tbh_Newsletters" EntityType="NewsletterModel.Store.tbh_Newsletters" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+  </EntityContainer>
+  <EntityType Name="tbh_Newsletters">
+    <Key>
+      <PropertyRef Name="NewsletterID" />
+    </Key>
+    <Property Name="NewsletterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="PlainTextBody" Type="ntext" Nullable="false" />
+    <Property Name="HtmlBody" Type="ntext" Nullable="false" />
+    <Property Name="DateSent" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

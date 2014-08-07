@@ -1,0 +1,60 @@
+8
+
+dir
+630
+http://dotnetkicks.googlecode.com/svn/trunk/DotNetKicks/Incremental.Kick.Web.UI/Templates/Default/images
+http://dotnetkicks.googlecode.com/svn
+
+
+
+2007-10-25T20:18:49.693338Z
+585
+simone.busoli
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+42c5ea4f-242c-0410-9959-2d221710c8fd
+
+gradients
+dir
+
+Thumbs.db
+file
+
+
+
+
+2008-07-04T22:08:00.418181Z
+f50856648158ec06de820a1261f6af13
+2007-07-06T14:12:25.752291Z
+79
+gavinjoyce
+has-props
+
+divider.gif
+file
+
+
+
+
+2008-07-04T22:08:00.426181Z
+50aa7e14cb08b3d113422df4e121ace5
+2007-07-06T14:12:25.752291Z
+79
+gavinjoyce
+has-props
+
+icons
+dir
+

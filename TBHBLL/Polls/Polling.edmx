@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BBICMSPolling.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BBICMSPollingStoreContainer">
+          <EntitySet Name="tbh_PollOptions" EntityType="BBICMSPolling.Store.tbh_PollOptions" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tbh_Polls" EntityType="BBICMSPolling.Store.tbh_Polls" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_tbh_PollOptions_tbh_Polls" Association="BBICMSPolling.Store.FK_tbh_PollOptions_tbh_Polls">
+            <End Role="tbh_Polls" EntitySet="tbh_Polls" />
+            <End Role="tbh_PollOptions" EntitySet="tbh_PollOptions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbh_PollOptions">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="PollID" Type="int" Nullable="false" />
+          <Property Name="OptionText" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Votes" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbh_Polls">
+          <Key>
+            <PropertyRef Name="PollID" />
+          </Key>
+          <Property Name="PollID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="QuestionText" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="IsArchived" Type="bit" Nullable="false" />
+          <Property Name="ArchivedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbh_PollOptions_tbh_Polls">
+          <End Role="tbh_Polls" Type="BBICMSPolling.Store.tbh_Polls" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_PollOptions" Type="BBICMSPolling.Store.tbh_PollOptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbh_Polls">
+              <PropertyRef Name="PollID" />
+            </Principal>
+            <Dependent Role="tbh_PollOptions">
+              <PropertyRef Name="PollID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BBICMSPolling" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PollEntities">
+          <EntitySet Name="PollOptions" EntityType="BBICMSPolling.PollOption" />
+          <EntitySet Name="Polls" EntityType="BBICMSPolling.Poll" />
+          <AssociationSet Name="FK_tbh_PollOptions_tbh_Polls" Association="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls">
+            <End Role="tbh_Polls" EntitySet="Polls" />
+            <End Role="tbh_PollOptions" EntitySet="PollOptions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PollOption">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="OptionText" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Votes" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Poll" Relationship="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" FromRole="tbh_PollOptions" ToRole="tbh_Polls" />
+        </EntityType>
+        <EntityType Name="Poll">
+          <Key>
+            <PropertyRef Name="PollID" />
+          </Key>
+          <Property Name="PollID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="IsArchived" Type="Boolean" Nullable="false" />
+          <Property Name="ArchivedDate" Type="DateTime" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PollOptions" Relationship="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" FromRole="tbh_Polls" ToRole="tbh_PollOptions" />
+        </EntityType>
+        <Association Name="FK_tbh_PollOptions_tbh_Polls">
+          <End Role="tbh_Polls" Type="BBICMSPolling.Poll" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_PollOptions" Type="BBICMSPolling.PollOption" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BBICMSPollingStoreContainer" CdmEntityContainer="PollEntities">
+          <EntitySetMapping Name="PollOptions">
+            <EntityTypeMapping TypeName="IsTypeOf(BBICMSPolling.PollOption)">
+              <MappingFragment StoreEntitySet="tbh_PollOptions">
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+                <ScalarProperty Name="Votes" ColumnName="Votes" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polls">
+            <EntityTypeMapping TypeName="IsTypeOf(BBICMSPolling.Poll)">
+              <MappingFragment StoreEntitySet="tbh_Polls">
+                <ScalarProperty Name="PollID" ColumnName="PollID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+                <ScalarProperty Name="ArchivedDate" ColumnName="ArchivedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_tbh_PollOptions_tbh_Polls" TypeName="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" StoreEntitySet="tbh_PollOptions">
+            <EndProperty Name="tbh_Polls">
+              <ScalarProperty Name="PollID" ColumnName="PollID" />
+            </EndProperty>
+            <EndProperty Name="tbh_PollOptions">
+              <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Polling" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="BBICMSPolling.PollOption" Width="1.5" PointX="3" PointY="1.125" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BBICMSPolling.Poll" Width="1.5" PointX="0.75" PointY="1" Height="3.1340950520833331" IsExpanded="true" />
+        <AssociationConnector Association="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.49974609375" />
+          <ConnectorPoint PointX="3" PointY="2.49974609375" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

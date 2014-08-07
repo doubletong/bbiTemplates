@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArticlesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ArticlesModelStoreContainer">
+          <EntitySet Name="tbh_Articles" EntityType="ArticlesModel.Store.tbh_Articles" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tbh_Categories" EntityType="ArticlesModel.Store.tbh_Categories" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="tbh_Comments" EntityType="ArticlesModel.Store.tbh_Comments" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_tbh_Articles_tbh_Categories" Association="ArticlesModel.Store.FK_tbh_Articles_tbh_Categories">
+            <End Role="tbh_Categories" EntitySet="tbh_Categories" />
+            <End Role="tbh_Articles" EntitySet="tbh_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbh_Comments_tbh_Articles" Association="ArticlesModel.Store.FK_tbh_Comments_tbh_Articles">
+            <End Role="tbh_Articles" EntitySet="tbh_Articles" />
+            <End Role="tbh_Comments" EntitySet="tbh_Comments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbh_Articles">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" />
+          <Property Name="Body" Type="ntext" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" MaxLength="250" />
+          <Property Name="Country" Type="nvarchar" MaxLength="256" />
+          <Property Name="State" Type="nvarchar" MaxLength="256" />
+          <Property Name="City" Type="nvarchar" MaxLength="256" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="Listed" Type="bit" Nullable="false" />
+          <Property Name="CommentsEnabled" Type="bit" Nullable="false" />
+          <Property Name="OnlyForMembers" Type="bit" Nullable="false" />
+          <Property Name="ViewCount" Type="int" Nullable="false" />
+          <Property Name="Votes" Type="int" Nullable="false" />
+          <Property Name="TotalRating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbh_Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Importance" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbh_Comments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="AddedByEmail" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="AddedByIP" Type="nchar" Nullable="false" MaxLength="15" />
+          <Property Name="ArticleID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Body" Type="ntext" Nullable="false" />
+          <Property Name="CommenterURL" Type="nvarchar" MaxLength="250" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbh_Articles_tbh_Categories">
+          <End Role="tbh_Categories" Type="ArticlesModel.Store.tbh_Categories" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_Articles" Type="ArticlesModel.Store.tbh_Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbh_Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="tbh_Articles">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbh_Comments_tbh_Articles">
+          <End Role="tbh_Articles" Type="ArticlesModel.Store.tbh_Articles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_Comments" Type="ArticlesModel.Store.tbh_Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbh_Articles">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="tbh_Comments">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArticlesModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ArticlesEntities">
+          <EntitySet Name="Articles" EntityType="ArticlesModel.Article" />
+          <EntitySet Name="Categories" EntityType="ArticlesModel.Category" />
+          <EntitySet Name="Comments" EntityType="ArticlesModel.Comment" />
+          <AssociationSet Name="FK_tbh_Articles_tbh_Categories" Association="ArticlesModel.FK_tbh_Articles_tbh_Categories">
+            <End Role="tbh_Categories" EntitySet="Categories" />
+            <End Role="tbh_Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbh_Comments_tbh_Articles" Association="ArticlesModel.FK_tbh_Comments_tbh_Articles">
+            <End Role="tbh_Articles" EntitySet="Articles" />
+            <End Role="tbh_Comments" EntitySet="Comments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Abstract" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ReleaseDate" Type="DateTime" />
+          <Property Name="ExpireDate" Type="DateTime" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Listed" Type="Boolean" Nullable="false" />
+          <Property Name="CommentsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="OnlyForMembers" Type="Boolean" Nullable="false" />
+          <Property Name="ViewCount" Type="Int32" Nullable="false" />
+          <Property Name="Votes" Type="Int32" Nullable="false" />
+          <Property Name="TotalRating" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="ArticlesModel.FK_tbh_Articles_tbh_Categories" FromRole="tbh_Articles" ToRole="tbh_Categories" />
+          <NavigationProperty Name="Comments" Relationship="ArticlesModel.FK_tbh_Comments_tbh_Articles" FromRole="tbh_Articles" ToRole="tbh_Comments" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" Nullable="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Keywords" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Importance" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Articles" Relationship="ArticlesModel.FK_tbh_Articles_tbh_Categories" FromRole="tbh_Categories" ToRole="tbh_Articles" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" Nullable="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" /></EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="AddedByEmail" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="AddedByIP" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Article" Relationship="ArticlesModel.FK_tbh_Comments_tbh_Articles" FromRole="tbh_Comments" ToRole="tbh_Articles" />
+          <Property Name="Title" Type="String" Nullable="true" />
+          <Property Name="CommenterURL" Type="String" Nullable="true" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" Nullable="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" /></EntityType>
+        <Association Name="FK_tbh_Articles_tbh_Categories">
+          <End Role="tbh_Categories" Type="ArticlesModel.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_Articles" Type="ArticlesModel.Article" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_tbh_Comments_tbh_Articles">
+          <End Role="tbh_Articles" Type="ArticlesModel.Article" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbh_Comments" Type="ArticlesModel.Comment" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArticlesModelStoreContainer" CdmEntityContainer="ArticlesEntities">
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="IsTypeOf(ArticlesModel.Article)">
+              <MappingFragment StoreEntitySet="tbh_Articles">
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Listed" ColumnName="Listed" />
+                <ScalarProperty Name="CommentsEnabled" ColumnName="CommentsEnabled" />
+                <ScalarProperty Name="OnlyForMembers" ColumnName="OnlyForMembers" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="Votes" ColumnName="Votes" />
+                <ScalarProperty Name="TotalRating" ColumnName="TotalRating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="IsTypeOf(ArticlesModel.Category)">
+              <MappingFragment StoreEntitySet="tbh_Categories">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Importance" ColumnName="Importance" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="IsTypeOf(ArticlesModel.Comment)">
+              <MappingFragment StoreEntitySet="tbh_Comments">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="CommenterURL" ColumnName="CommenterURL" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="AddedByEmail" ColumnName="AddedByEmail" />
+                <ScalarProperty Name="AddedByIP" ColumnName="AddedByIP" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_tbh_Articles_tbh_Categories" TypeName="ArticlesModel.FK_tbh_Articles_tbh_Categories" StoreEntitySet="tbh_Articles">
+            <EndProperty Name="tbh_Categories">
+              <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            </EndProperty>
+            <EndProperty Name="tbh_Articles">
+              <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_tbh_Comments_tbh_Articles" TypeName="ArticlesModel.FK_tbh_Comments_tbh_Articles" StoreEntitySet="tbh_Comments">
+            <EndProperty Name="tbh_Articles">
+              <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+            </EndProperty>
+            <EndProperty Name="tbh_Comments">
+              <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ArticlesModel" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="ArticlesModel.Article" Width="1.5" PointX="2.625" PointY="1.125" Height="4.8648079427083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArticlesModel.Category" Width="1.5" PointX="0.75" PointY="2.25" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArticlesModel.Comment" Width="1.5" PointX="5.25" PointY="2.375" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="ArticlesModel.FK_tbh_Articles_tbh_Categories" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.5285953776041667" />
+          <ConnectorPoint PointX="2.625" PointY="3.5285953776041667" /></AssociationConnector>
+        <AssociationConnector Association="ArticlesModel.FK_tbh_Comments_tbh_Articles" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.125" PointY="3.5574446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="3.5574446614583337" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

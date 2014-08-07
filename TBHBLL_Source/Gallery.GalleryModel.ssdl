@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TheBeerHouseVBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="TheBeerHouseVBModelStoreContainer">
+    <EntitySet Name="tbh_Album" EntityType="TheBeerHouseVBModel.Store.tbh_Album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Pictures" EntityType="TheBeerHouseVBModel.Store.tbh_Pictures" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Pictures_Album" Association="TheBeerHouseVBModel.Store.FK_Pictures_Album">
+      <End Role="tbh_Album" EntitySet="tbh_Album" />
+      <End Role="tbh_Pictures" EntitySet="tbh_Pictures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbh_Album">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Name="AlbumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AlbumDesc" Type="nvarchar" MaxLength="2500" />
+    <Property Name="AlbumCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ParentAlbumID" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbh_Pictures">
+    <Key>
+      <PropertyRef Name="PictureID" />
+    </Key>
+    <Property Name="PictureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PictureTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="PictureCaption" Type="nvarchar" MaxLength="2500" />
+    <Property Name="PictureCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="PictureFileName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PictureHighlight" Type="bit" />
+    <Property Name="PictureAlbumID" Type="int" Nullable="false" />
+    <Property Name="PictureViewCount" Type="int" Nullable="false" />
+    <Property Name="AlbumOrder" Type="int" Nullable="false" />
+    <Property Name="ThumbWidth" Type="int" Nullable="false" />
+    <Property Name="ThumbHeight" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Pictures_Album">
+    <End Role="tbh_Album" Type="TheBeerHouseVBModel.Store.tbh_Album" Multiplicity="1" />
+    <End Role="tbh_Pictures" Type="TheBeerHouseVBModel.Store.tbh_Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Album">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="tbh_Pictures">
+        <PropertyRef Name="PictureAlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

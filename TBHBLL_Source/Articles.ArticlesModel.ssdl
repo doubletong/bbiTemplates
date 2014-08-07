@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArticlesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="ArticlesModelStoreContainer">
+    <EntitySet Name="tbh_Articles" EntityType="ArticlesModel.Store.tbh_Articles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Categories" EntityType="ArticlesModel.Store.tbh_Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Comments" EntityType="ArticlesModel.Store.tbh_Comments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbh_Articles_tbh_Categories" Association="ArticlesModel.Store.FK_tbh_Articles_tbh_Categories">
+      <End Role="tbh_Categories" EntitySet="tbh_Categories" />
+      <End Role="tbh_Articles" EntitySet="tbh_Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbh_Comments_tbh_Articles" Association="ArticlesModel.Store.FK_tbh_Comments_tbh_Articles">
+      <End Role="tbh_Articles" EntitySet="tbh_Articles" />
+      <End Role="tbh_Comments" EntitySet="tbh_Comments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbh_Articles">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Abstract" Type="nvarchar" />
+    <Property Name="Body" Type="ntext" Nullable="false" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="Country" Type="nvarchar" MaxLength="256" />
+    <Property Name="State" Type="nvarchar" MaxLength="256" />
+    <Property Name="City" Type="nvarchar" MaxLength="256" />
+    <Property Name="ReleaseDate" Type="datetime" />
+    <Property Name="ExpireDate" Type="datetime" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="Listed" Type="bit" Nullable="false" />
+    <Property Name="CommentsEnabled" Type="bit" Nullable="false" />
+    <Property Name="OnlyForMembers" Type="bit" Nullable="false" />
+    <Property Name="ViewCount" Type="int" Nullable="false" />
+    <Property Name="Votes" Type="int" Nullable="false" />
+    <Property Name="TotalRating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Importance" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="AddedByEmail" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="AddedByIP" Type="nchar" Nullable="false" MaxLength="15" />
+    <Property Name="ArticleID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Body" Type="ntext" Nullable="false" />
+    <Property Name="CommenterURL" Type="nvarchar" MaxLength="250" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_Articles_tbh_Categories">
+    <End Role="tbh_Categories" Type="ArticlesModel.Store.tbh_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Articles" Type="ArticlesModel.Store.tbh_Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbh_Articles">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbh_Comments_tbh_Articles">
+    <End Role="tbh_Articles" Type="ArticlesModel.Store.tbh_Articles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Comments" Type="ArticlesModel.Store.tbh_Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Articles">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="tbh_Comments">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

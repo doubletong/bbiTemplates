@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/TBHMain.master" AutoEventWireup="false" CodeFile="LCMaster.master.cs" Inherits="LCMaster" %>
+
+<%@ MasterType VirtualPath="~/TBHMain.Master" %>
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="Server">
+    <asp:ContentPlaceHolder ID="cphMainHeader" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="Server">
+    <div id='left-main-content'>
+        <div class="tbhSiteMapPath">
+            <asp:SiteMapPath runat="server" ID="TBHSiteMapPath" CssClass="tbhSiteMapPath" ParentLevelsDisplayed="2">
+            </asp:SiteMapPath>
+        </div>
+        <asp:ContentPlaceHolder ID="CenterColumn" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id='right-column'>
+        <div id="dRSS">
+            <a href="thebeerhouse.rss">Subscribe:
+                <img id="Img1" runat="server" src="~/images/beercap.gif" border="0" alt="Follow The BeerHouse via RSS." /></a>
+            <hr />
+        </div>
+        <asp:ContentPlaceHolder ID="LeftColumn" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

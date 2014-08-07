@@ -1,0 +1,9 @@
+K 15
+bugtraq:message
+V 13
+Issue %BUGID%
+K 11
+bugtraq:url
+V 61
+http://code.google.com/p/dotnetkicks/issues/detail?id=%BUGID%
+END

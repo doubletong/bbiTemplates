@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="TheBeerHousePollingStoreContainer" CdmEntityContainer="PollEntities">
+    <EntitySetMapping Name="PollOptions">
+      <EntityTypeMapping TypeName="IsTypeOf(TheBeerHousePolling.PollOption)">
+        <MappingFragment StoreEntitySet="tbh_PollOptions">
+          <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+          <ScalarProperty Name="Votes" ColumnName="Votes" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polls">
+      <EntityTypeMapping TypeName="IsTypeOf(TheBeerHousePolling.Poll)">
+        <MappingFragment StoreEntitySet="tbh_Polls">
+          <ScalarProperty Name="PollID" ColumnName="PollID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+          <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+          <ScalarProperty Name="ArchivedDate" ColumnName="ArchivedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_tbh_PollOptions_tbh_Polls" TypeName="TheBeerHousePolling.FK_tbh_PollOptions_tbh_Polls" StoreEntitySet="tbh_PollOptions">
+      <EndProperty Name="tbh_Polls">
+        <ScalarProperty Name="PollID" ColumnName="PollID" />
+      </EndProperty>
+      <EndProperty Name="tbh_PollOptions">
+        <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

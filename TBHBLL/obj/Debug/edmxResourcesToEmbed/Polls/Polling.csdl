@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BBICMSPolling" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PollEntities">
+    <EntitySet Name="PollOptions" EntityType="BBICMSPolling.PollOption" />
+    <EntitySet Name="Polls" EntityType="BBICMSPolling.Poll" />
+    <AssociationSet Name="FK_tbh_PollOptions_tbh_Polls" Association="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls">
+      <End Role="tbh_Polls" EntitySet="Polls" />
+      <End Role="tbh_PollOptions" EntitySet="PollOptions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PollOption">
+    <Key>
+      <PropertyRef Name="OptionID" />
+    </Key>
+    <Property Name="OptionID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="OptionText" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Votes" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Poll" Relationship="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" FromRole="tbh_PollOptions" ToRole="tbh_Polls" />
+  </EntityType>
+  <EntityType Name="Poll">
+    <Key>
+      <PropertyRef Name="PollID" />
+    </Key>
+    <Property Name="PollID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+    <Property Name="IsArchived" Type="Boolean" Nullable="false" />
+    <Property Name="ArchivedDate" Type="DateTime" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PollOptions" Relationship="BBICMSPolling.FK_tbh_PollOptions_tbh_Polls" FromRole="tbh_Polls" ToRole="tbh_PollOptions" />
+  </EntityType>
+  <Association Name="FK_tbh_PollOptions_tbh_Polls">
+    <End Role="tbh_Polls" Type="BBICMSPolling.Poll" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_PollOptions" Type="BBICMSPolling.PollOption" Multiplicity="*" />
+  </Association>
+</Schema>

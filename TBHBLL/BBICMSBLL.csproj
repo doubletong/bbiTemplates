@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E2798BD-AE71-4CFE-80A2-06C67413939A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BBICMS</RootNamespace>
+    <AssemblyName>BBICMSBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.0.9414.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3rd Party\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Joel.Net.Akismet, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3rd Party\Joel.Net.Akismet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TwitterLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=19392ef3ce00d32c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\3rd Party\TwitterLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Articles\Article.cs" />
+    <Compile Include="Articles\ArticleHelper.cs" />
+    <Compile Include="Articles\ArticlePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Articles\ArticleRepository.cs" />
+    <Compile Include="Articles\ArticlesEntities.cs" />
+    <Compile Include="Articles\ArticlesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticlesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Articles\BaseArticleRepository.cs" />
+    <Compile Include="Articles\Category.cs" />
+    <Compile Include="Articles\CategoryRepository.cs" />
+    <Compile Include="Articles\Comment.cs" />
+    <Compile Include="Articles\CommentRepository.cs" />
+    <Compile Include="BaseHandler.cs" />
+    <Compile Include="BeerHouseDataException.cs" />
+    <Compile Include="Cache\TBHCache.cs" />
+    <Compile Include="Config\TheBeerHouseSection.cs" />
+    <Compile Include="Context\BaseRepository.cs" />
+    <Compile Include="Context\ContextExtensions.cs" />
+    <Compile Include="Controls\AvailabilityImage.cs" />
+    <Compile Include="Controls\CountryDropDownList.cs" />
+    <Compile Include="Controls\StateDropDownList.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Events\BaseEventRepository.cs" />
+    <Compile Include="Events\CalendarofEvents.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarofEvents.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventHelper.cs" />
+    <Compile Include="Events\EventInfo.cs" />
+    <Compile Include="Events\EventPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventRepository.cs" />
+    <Compile Include="Events\EventRSVP.cs" />
+    <Compile Include="Events\EventRSVPRepository.cs" />
+    <Compile Include="Events\vCalendar.cs" />
+    <Compile Include="Events\vCalHandler.cs" />
+    <Compile Include="Forums\BaseForumRepository.cs" />
+    <Compile Include="Forums\Forum.cs" />
+    <Compile Include="Forums\ForumHelper.cs" />
+    <Compile Include="Forums\ForumModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ForumModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Forums\ForumPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forums\ForumsRepository.cs" />
+    <Compile Include="Forums\Post.cs" />
+    <Compile Include="Forums\PostsRepository.cs" />
+    <Compile Include="Forums\RSSForum.cs" />
+    <Compile Include="Gallery\Album.cs" />
+    <Compile Include="Gallery\AlbumRepository.cs" />
+    <Compile Include="Gallery\BaseGalleryRepository.cs" />
+    <Compile Include="Gallery\GalleryHelper.cs" />
+    <Compile Include="Gallery\GalleryImage.cs" />
+    <Compile Include="Gallery\GalleryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GalleryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\GalleryPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery\Picture.cs" />
+    <Compile Include="Gallery\PicturesRepository.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="GravatarHelper.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Intefaces\IBaseEntity.cs" />
+    <Compile Include="Intefaces\ICache.cs" />
+    <Compile Include="Modules\URLRewrite.cs" />
+    <Compile Include="Navigation\AdminMenuItem.cs" />
+    <Compile Include="Navigation\SiteMapInfo.cs" />
+    <Compile Include="Navigation\SiteMapModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteMapModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\SiteMapRepository.cs" />
+    <Compile Include="Navigation\SiteMapsHandler.cs" />
+    <Compile Include="Navigation\TBHSiteMapProvider.cs" />
+    <Compile Include="Newsletters\Newsletter.cs" />
+    <Compile Include="Newsletters\NewsletterModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewsletterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Newsletters\NewsLetterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newsletters\NewslettersRepository.cs" />
+    <Compile Include="Newsletters\NewsletterStatus.cs" />
+    <Compile Include="Newsletters\SubscriberInfo.cs" />
+    <Compile Include="Newsletters\SubscriptionType.cs" />
+    <Compile Include="Polls\BasePollRepository.cs" />
+    <Compile Include="Polls\Poll.cs" />
+    <Compile Include="Polls\PollContext.cs" />
+    <Compile Include="Polls\Polling.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Polling.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Polls\PollOption.cs" />
+    <Compile Include="Polls\PollOptionList.cs" />
+    <Compile Include="Polls\PollOptionsRepository.cs" />
+    <Compile Include="Polls\PollsRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSSFeed.cs" />
+    <Compile Include="Security\Authorization.cs" />
+    <Compile Include="Security\AuthorizedList.cs" />
+    <Compile Include="Security\OpenID.cs" />
+    <Compile Include="Store\BaseShoppingCartRepository.cs" />
+    <Compile Include="Store\Department.cs" />
+    <Compile Include="Store\DepartmentRepository.cs" />
+    <Compile Include="Store\Order.cs" />
+    <Compile Include="Store\OrderDetails_Old.cs" />
+    <Compile Include="Store\OrderItem.cs" />
+    <Compile Include="Store\OrderItemsRepository.cs" />
+    <Compile Include="Store\OrdersRepository.cs" />
+    <Compile Include="Store\OrderStatus.cs" />
+    <Compile Include="Store\OrderStatusesRepository.cs" />
+    <Compile Include="Store\Photo.cs" />
+    <Compile Include="Store\PhotoRepository.cs" />
+    <Compile Include="Store\Product.cs" />
+    <Compile Include="Store\ProductsRepository.cs" />
+    <Compile Include="Store\ProductsRSS.cs" />
+    <Compile Include="Store\ShippingMethod.cs" />
+    <Compile Include="Store\ShippingMethodsRepository.cs" />
+    <Compile Include="Store\ShoppingCart.cs" />
+    <Compile Include="Store\ShoppingCartItem.cs" />
+    <Compile Include="Store\ShoppingContext.cs" />
+    <Compile Include="Store\ShoppingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\StatusCode.cs" />
+    <Compile Include="Store\StoreAdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\StoreHelper.cs" />
+    <Compile Include="UI\AdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RoleAdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UIUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Navigation\SiteMapModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SiteMapModel.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>BLL</CustomToolNamespace>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Store\ShoppingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Polls\Polling.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Polling.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Newsletters\NewsletterModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NewsletterModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Gallery\GalleryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GalleryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Forums\ForumModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ForumModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Events\CalendarofEvents.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CalendarofEvents.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Articles\ArticlesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ArticlesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Social\Twitter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

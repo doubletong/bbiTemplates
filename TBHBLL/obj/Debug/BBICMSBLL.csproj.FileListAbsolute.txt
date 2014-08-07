@@ -1,0 +1,7 @@
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.dll.config
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.dll
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.pdb
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\System.Data.SQLite.dll
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\BBICMSBLL.dll
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\BBICMSBLL.pdb
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\BBICMSBLL.csprojResolveAssemblyReference.cache

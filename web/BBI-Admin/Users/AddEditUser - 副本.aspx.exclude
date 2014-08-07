@@ -1,0 +1,407 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/bbi-Admin/Admin.master" AutoEventWireup="true" CodeFile="AddEditUser.aspx.cs" 
+    Inherits="Admin_AddEditUser" Title="编辑会员_后台管理_{0}" %>
+
+<asp:Content ID="MainContent" ContentPlaceHolderID="AdminContent" runat="Server">
+    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
+    </asp:ScriptManagerProxy>
+  
+    
+     <div class="container-fluid">
+    <div class="row-fluid">
+
+      <div class="area-top clearfix">
+        <div class="pull-left header">
+          <h3 class="title">
+            <i class="icon-user"></i>
+            会员管理
+          </h3>
+          <h5>
+            会员管理中心
+          </h5>
+        </div>
+
+         <bbi:Statistics runat="server" id="SimpleStatistics" />
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="container-fluid padded">
+    <div class="row-fluid">
+
+      <!-- Breadcrumb line -->
+
+      <div id="breadcrumbs">
+        <div class="breadcrumb-button blue">
+          <span class="breadcrumb-label"><i class="icon-home"></i> 首页</span>
+          <span class="breadcrumb-arrow"><span></span></span>
+        </div>
+
+         <div class="breadcrumb-button">
+              <span class="breadcrumb-label">
+                <i class="icon-user"></i> 会员中心
+              </span>
+              <span class="breadcrumb-arrow"><span></span></span>
+            </div>
+
+            <div class="breadcrumb-button">
+              <span class="breadcrumb-label">
+                <i class="icon-edit"></i> 编辑会员
+              </span>
+              <span class="breadcrumb-arrow"><span></span></span>
+            </div>
+        
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="container-fluid padded">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box">
+
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-user"></i> <span>用户信息</span></a></li>
+          <li><a href="#messages" data-toggle="tab"><i class="icon-key"></i> <span>角色信息</span></a></li>
+          <li><a href="#settings" data-toggle="tab"><i class="icon-info-sign"></i> <span>个人资料</span></a></li>
+        </ul>
+
+        <div class="title">Settings</div>
+      </div>
+
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+
+              <li>
+                <span><i class="icon-user"></i> 用户名</span>
+                <span class="pull-right">
+                    <asp:Literal runat="server" ID="ltlUserName"></asp:Literal>
+                                <div runat="server" id="dUserName">
+                                    <asp:TextBox ID="txtUserName" runat="server" CssClass="formField"></asp:TextBox><sup><font
+                                        color="red" size="2">*</font></sup>&nbsp;
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUserName"
+                                        Display="None" ErrorMessage="You must supply  a Username."></asp:RequiredFieldValidator>
+                                    <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="RequiredFieldValidator1">
+                                    </asp:ValidatorCalloutExtender>
+                                </div>
+                </span>
+              </li>
+
+              <li>
+                <span><i class="icon-money"></i> Auto accept new orders</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox"/>
+                </span>
+              </li>
+
+              <li>
+                <span><i class="icon-upload"></i> Allow user uploads</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox" checked="checked" />
+                </span>
+              </li>
+
+              <li>
+                <p class="text-center">Upload Max Size <span class="upload-max-size">40 MB</span></p>
+                <div class="hpadded">
+                  <div class="ranged-slider-ui step"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="tab-pane" id="messages">
+            <ul class="box-list">
+              <li>
+                <span><i class="icon-envelope"></i> Alert incoming messages</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox" checked="checked"/>
+                </span>
+              </li>
+
+              <li>
+                <span><i class="icon-reply"></i> Auto Reply on leave</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox" checked="checked" />
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-pane" id="settings">
+
+            <ul class="box-list">
+              <li>
+                <span><i class="icon-user"></i> MOAR</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox" checked="checked" />
+                </span>
+              </li>
+
+              <li>
+                <span><i class="icon-money"></i> SETTINGS</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox"/>
+                </span>
+              </li>
+
+              <li>
+                <span><i class="icon-upload"></i> HERE</span>
+                <span class="pull-right">
+                  <input class="iButton-icons-tab" type="checkbox" checked="checked" />
+                </span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="box-footer padded">
+          <span class="pull-right">
+            <a href="#" class="btn btn-blue btn-small">Save</a>
+            <a href="#" class="btn btn-default btn-small">Cancel</a>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="sectiontitle">
+        <asp:Literal runat="server" ID="ltlStatus"></asp:Literal>
+    </div>
+    <div id="ContentBody">
+        <asp:TabContainer ID="TabContainer1" runat="server">
+            <asp:TabPanel runat="server" ID="tpUser1">
+                <HeaderTemplate>
+                    User Info</HeaderTemplate>
+                <ContentTemplate>
+                    <table id="Table2" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                        <tr>
+                            <td class="fieldname">
+                                Username
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fieldname">
+                                E-Mail
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:Literal runat="server" ID="ltlEMail"></asp:Literal>
+                                <div runat="server" id="dEMail">
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="formField"></asp:TextBox><span
+                                        style="font-size: 10pt; vertical-align: super; color: #ff0000">*</span>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail"
+                                        Display="None" ErrorMessage="You must supply a valid E-Mail"></asp:RequiredFieldValidator>
+                                    <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RequiredFieldValidator2">
+                                    </asp:ValidatorCalloutExtender>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr runat="server" id="trQuestion">
+                            <td class="fieldname">
+                                <asp:Label runat="server" ID="lblQuestion" AssociatedControlID="Question" Text="Security question:" />
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:TextBox runat="server" ID="Question" Width="100%" />
+                                <asp:RequiredFieldValidator ID="valRequireQuestion" runat="server" ControlToValidate="Question"
+                                    SetFocusOnError="true" Display="Dynamic" ErrorMessage="Security question is required."
+                                    ToolTip="Security question is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr runat="server" id="trAnswer">
+                            <td class="fieldname">
+                                <asp:Label runat="server" ID="lblAnswer" AssociatedControlID="Answer" Text="Security answer:" />
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:TextBox runat="server" ID="Answer" Width="100%" />
+                                <asp:RequiredFieldValidator ID="valRequireAnswer" runat="server" ControlToValidate="Answer"
+                                    SetFocusOnError="true" Display="Dynamic" ErrorMessage="Security answer is required."
+                                    ToolTip="Security answer is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr runat="server" id="trRegistered">
+                            <td class="fieldname">
+                                Registered:
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:Literal runat="server" ID="lblRegistered" />
+                            </td>
+                        </tr>
+                        <tr runat="server" id="trLastLogin">
+                            <td class="fieldname">
+                                Last Login:
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:Literal runat="server" ID="lblLastLogin" />
+                            </td>
+                        </tr>
+                        <tr runat="server" id="trLastActivity">
+                            <td class="fieldname">
+                                Last Activity:
+                            </td>
+                            <td width="10">
+                            </td>
+                            <td>
+                                <asp:Literal runat="server" ID="lblLastActivity" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table runat="server" id="tUserStatus" cellspacing="0" cellpadding="0" width="100%"
+                                    align="center" border="0">
+                                    <tr>
+                                        <td class="fieldname">
+                                            <asp:Label runat="server" ID="lblOnlineNow" AssociatedControlID="chkOnlineNow" Text="Online Now:" />
+                                        </td>
+                                        <td width="10">
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkOnlineNow" Enabled="false" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fieldname">
+                                            <asp:Label runat="server" ID="lblApproved" AssociatedControlID="chkApproved" Text="Approved:" />
+                                        </td>
+                                        <td width="10">
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkApproved" AutoPostBack="true" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fieldname">
+                                            <asp:Label runat="server" ID="lblLockedOut" AssociatedControlID="chkLockedOut" Text="Locked Out:" />
+                                        </td>
+                                        <td width="10">
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkLockedOut" AutoPostBack="true" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div runat="server" id="dPassword">
+                                    Password &nbsp;&nbsp;
+                                    <asp:TextBox ID="txtPwd" runat="server" TextMode="Password" CssClass="formField"></asp:TextBox><span
+                                        style="vertical-align: super; color: red">*
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPwd"
+                                            Display="None" ErrorMessage="You must supply a Password."></asp:RequiredFieldValidator>
+                                    </span>&nbsp;<br />
+                                    <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RequiredFieldValidator3">
+                                    </asp:ValidatorCalloutExtender>
+                                    Confirm Password
+                                    <asp:TextBox ID="txtPwdConfirm" runat="server" TextMode="Password" CssClass="formField"></asp:TextBox>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPwdConfirm"
+                                        ControlToValidate="txtPwd" Display="None" ErrorMessage="The Passwords do not Match."></asp:CompareValidator>
+                                    <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" TargetControlID="CompareValidator1">
+                                    </asp:ValidatorCalloutExtender>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            </td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+            </asp:TabPanel>
+            <asp:TabPanel runat="server" ID="tpRoles">
+                <HeaderTemplate>
+                    Role Info</HeaderTemplate>
+                <ContentTemplate>
+                    <fieldset id="commentform">
+                        <legend>Edit user's roles</legend>
+                        <asp:CheckBoxList ID="cblRoles" runat="server" RepeatColumns="3">
+                        </asp:CheckBoxList>
+                        <br />
+                        <table cellspacing="1">
+                            <tr>
+                                <td>
+                                    New Role:
+                                    <asp:TextBox ID="txtNewRole" runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnNewRole" runat="server" Text="Add Role" />
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <asp:Button ID="btnUpdateRoles" runat="server" Text="Update Roles" Visible="False" />
+                        <br />
+                        <asp:Label ID="lblRolesFeedbackOK" runat="server" SkinID="FeedbackOK" Text="Roles updated successfully"
+                            Visible="False"></asp:Label>
+                    </fieldset>
+                </ContentTemplate>
+            </asp:TabPanel>
+            <asp:TabPanel runat="server" ID="tpProfile">
+                <HeaderTemplate>
+                    Profile Info</HeaderTemplate>
+                <ContentTemplate>
+                    <uc1:UserProfile ID="UserProfile1" runat="server" />
+                </ContentTemplate>
+            </asp:TabPanel>
+        </asp:TabContainer>
+        <table id="Table1" cellspacing="1" cellpadding="1" width="95%" align="center" border="0">
+            <tr>
+                <td>
+                    <asp:Literal ID="ltlMessage" runat="server"></asp:Literal>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="Table11" cellspacing="1" cellpadding="1" width="300" align="center" border="0">
+                        <tr>
+                            <td class="AdminDetailsAction">
+                                <asp:LinkButton ID="lbDelete" CssClass="AdminButton" runat="server" CausesValidation="false">Delete</asp:LinkButton>
+                            </td>
+                            <td class="AdminDetailsAction">
+                                <asp:LinkButton ID="lbCancel" CssClass="AdminButton" runat="server" CausesValidation="false">Cancel</asp:LinkButton>
+                            </td>
+                            <td class="AdminDetailsAction">
+                                <asp:LinkButton ID="lbUpdate" CssClass="AdminButton" runat="server">Update</asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</asp:Content>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="head">
+</asp:Content>
+

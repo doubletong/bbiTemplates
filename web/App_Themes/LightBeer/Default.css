@@ -1,0 +1,2333 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #FFCC00;
+}
+
+div#dHeader, div#footer, div#dContainer
+{
+    background-position: 0 0;
+    background: none repeat scroll 0 0;
+    
+    border: none;
+    width: 780px;
+    margin: auto;
+}
+
+/* Header Elements */
+
+#dMainHeader
+{
+    clear: both;
+    color: #800000;
+    float: left;
+    height: 80px;
+    padding: 0;
+    width: 780px;
+    background-color: #CC6600;
+}
+
+H1.dMainHeader
+{
+    font-size: 24px;
+    font-weight: bold;
+    color: #996633;
+}
+
+#dLogo
+{
+    width: 480px;
+    float: left;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+#dLoginLinks
+{
+    width: 200px;
+    float: right;
+    margin-top: 10px 5px 0 0;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+/* Login */
+
+#dLoginMenu
+{
+    text-align: right;
+    display: none;
+}
+
+#dLogoutMenu
+{
+    text-align :right;
+    display: none;
+}
+
+
+
+a.LoginLink:link
+{
+    padding: 2px 1px 2px 1px;
+    color: #FFFFFF;
+    font-size: Small;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a.LoginLink:visited
+{
+    padding: 2px 1px 2px 1px;
+    color: #FFFFFF;
+    font-size: Small;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a.LoginLink:active
+{
+    padding: 2px 1px 2px 1px;
+    color: #FFFFFF;
+    font-size: Small;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a.LoginLink:hover
+{
+    padding: 2px 1px 2px 1px;
+    color: #FFFFFF;
+    font-size: Small;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+/* Themes */
+#dThemeselector
+{
+    text-align: right;
+    height: 80px;
+    padding: 2px;
+    font-size: 10px;
+    margin-top: 50px;
+    margin-right: 10px;
+    color: #FFFFFF;
+}
+
+#dThemeselector select
+{
+   color: black;
+   background-color: #e1e1e1;
+   font-size: 10px;
+}
+
+
+/* Menu */
+
+#dMainNav
+{
+    float: left;
+    padding: 2px 0 0px 0;
+    top: 85px;
+    height: 28px;
+    bottom: 100px;
+    left: 1px;
+    width: 780px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #996633;
+}
+
+#dMenu
+{
+    width: 550px;
+    float: left;
+}
+
+#dMenu ul
+{
+    clear: left;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+
+#dMenu ul li, #dSocial ul li, #footermenu ul li
+{
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#dMenu ul li a
+{
+    display: block;
+    float: left;
+    margin: 0 0 0 1px;
+    padding: 3px 10px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+    left: 15px;
+    font-size: medium;
+}
+
+#dMenu ul li a:hover
+{
+    background: transparent;
+    color: #CECECE;
+}
+
+#dMenu ul li a.active, #dMenu ul li a.active:hover
+{
+    font-weight: bolder;
+}
+
+#dMenu ul li a span
+{
+    display: block;
+}
+    
+#dSocial
+{
+    float: right;
+    margin: 0;
+    padding: 0px 6px 0 0;
+    font-size: 0px;
+}
+
+#dSocial li a
+{
+    text-decoration: none;
+    padding: 0 2px;
+}
+
+/* Footer */
+
+#dMainfooter
+{
+    clear: both;
+    padding: 3px 0px 3px 0px;
+    color: #808080;
+    font-size: x-small;
+    height: 16px;
+    top: 5px;
+    background: #333333 none repeat scroll 0 0;
+    margin: auto;
+    width: 780px;
+}
+
+#footermenu ul
+{
+    clear: left;
+    float: left;
+    width: 500px;
+    list-style: none;
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+
+#footermenu ul li a
+{
+    display: block;
+    float: left;
+    margin: 0 0 0 1px;
+    padding: 3px 10px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+    left: 15px;
+    font-size:x-small;
+}
+	
+#footermenu ul li a:hover {
+	background:transparent;
+	color:#fff;
+}
+
+#footermenu ul li a.active,
+#footermenu ul li a.active:hover {
+	font-weight:bolder;
+}
+
+#footerCopyright
+{
+    float: right;
+    width: 200px;
+    left:580px;
+    color:White;
+}
+
+
+#footertext
+{
+    text-align: center;
+    padding-top: 3px;
+}
+
+/* Main Content */
+
+div#dContainer
+{
+    clear:both ;
+    min-height: 400px;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+#center-main-content
+{
+    background-color:#FFFFFF;
+    border-right:thin solid #000080;
+    float:left;
+    margin:5px;
+    min-height:400px;
+    width:360px;    
+}
+
+#left-main-content, #right-main-content
+{
+    background-color:#FFF;
+    margin:5px;
+    min-height:400px;
+    width:570px;
+}
+
+#left-main-content
+{
+    border-right:thin solid #000080;
+    float:left;
+}
+
+#right-main-content
+{
+    border-right:thin solid #000080;
+    float:right;
+}
+
+#center-content
+{
+    background-color: #fff;
+    border-right:thin solid #000080;
+    float:right;
+    margin:5px;
+    min-height:400px;
+    width:400px;
+}
+
+#right-column, #left-column
+{
+    background-color: #E6BB70;
+    margin: 4px;
+    min-height: 190px;
+    width: 180px;
+}
+
+#right-column
+{
+    float: right;
+    left: 380px;
+}
+
+#left-column
+{
+    clear:left;
+    float: left;
+    margin-right: 5px;
+}
+
+
+a
+{
+    color : #800000;   
+}
+
+
+
+#dRSS
+{
+    vertical-align: middle;
+    text-align: center;
+    height: 50px;
+}
+
+#dRSS A
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #800000;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+
+.BHButton
+{
+    border: thin groove #880000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #990000;
+}
+
+
+.fieldname td
+{
+    text-align: right;
+    font-size: 10px;
+    font-weight: bold;
+    width: 110px;
+}
+
+#dPassword
+{
+    clear:both ;
+    text-align :left;
+    float :left;
+}
+
+hr
+{
+   color: #b45d16;
+}
+
+#ContentMain
+{
+    margin: 5px 5px 10px 5px;
+}
+
+#ContentMain H1
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #990000;
+    font-weight: bold;
+    text-align: center;
+}
+
+#ContentBody
+{
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+
+#FeaturedProductHome
+{
+ min-height :200px;   
+}
+
+#CurrentPollHome
+{
+ min-height :200px;   
+}
+
+/* Content */
+
+#ContentTitle
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: auto;
+}
+
+
+#ContentTitle h1
+{
+    font-size: large;
+    font-weight: bold;
+    color: #800000;
+    text-decoration: none;
+    text-align: center;
+}
+
+#ContentBody
+{
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #000000;
+}
+
+/* Side Bar Box */
+
+.SideBarbox
+{
+    padding: 0px 1px 3px 1px;
+    font-size: 11px;
+    text-align: center;
+    border: 1px dashed #FFFFFF;
+    background-color: #996633;
+}
+
+.SideBarbox a
+{
+    color: #521300;
+    font-weight: bold;
+}
+
+.SideBarTitle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #993300;
+}
+
+.SideBarTitle img
+{
+    float: left;
+    margin-left: 3px; 
+    margin-right: 3px;   
+}
+
+.SideBarContent
+{
+   padding: 6px;
+}
+
+
+/* Bread Crumb*/
+.tbhSiteMapPath
+{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px 4px 5px 4px;
+    color: #990000;
+    font-size: x-small;
+    font-weight: normal;
+    margin-top: 2px 5px 0 0;
+}
+
+#breadcrumb
+{
+   background-color: #202020;
+   color: White;
+   padding: 3px 3px 3px 5px;
+   font-size: 10px;	
+}
+
+#breadcrumb a
+{
+   color: Yellow;
+}
+
+
+/* Banner */
+#bannerbox
+{
+   border: dashed 2px #c35308;
+   margin: 20px 10px 20px 10px;   
+   padding: 5px;
+   text-align: center;
+   background-color: #e1e1e1;
+}
+
+#bannerbox a
+{
+   font-size: 10px;
+   text-decoration: none;
+   color: black; 
+}
+
+/* Login */
+#loginbox
+{
+    border: thin ridge #CC6600;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    width: 180px;
+    height: 100px;
+    padding: 2px;
+    font-size: 10px;
+    background-color: #F27900;
+}
+
+#loginbox input
+{
+	color: #CC3300;
+	border-color: #666633;
+	background-color: #f7d582;
+	font-size: 10px;
+}
+
+#liAdmin
+{
+    display: none;
+}
+
+
+.AltAdminRow
+{
+    background-color: #CCCCCC;
+}
+
+
+
+/* Left Column */       
+#leftcol
+{
+    clear: both;
+    padding: 1px 5px 2px 5px;
+    width: 185px;
+    background-color: #FFF1D7;
+    font-size: 10px;
+    color: #521300;
+    float: left;
+}
+
+#leftcol div.text
+{
+   padding: 6px;
+   text-align: justify;
+}
+
+#leftcol div.alternatetext
+{
+   padding: 6px;
+   background-color: #e1e1e1;
+   text-align: justify;
+}
+
+#leftcol div.sectiontitle, #leftcol .sectiontitle span
+{
+   padding: 6px 6px 6px 3px;
+   background-color: #818689;
+   color: white;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+/* Right Column */
+#RightColumn
+{
+    background-color:#993300;
+    color: #CC6600;
+    top: 10px;
+    float :right ;
+    width: 160px;
+    position: absolute;
+}
+
+#rightcol a
+{
+    color: #521300;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+}
+
+#rightcol hr
+{
+    color: #521300;
+    width:85%;
+}
+
+#rightcol
+{
+    float :right ;
+    padding: 1px 5px 2px 5px;
+    width:160px;
+   background-color: #E6BB70;
+   font-size: 10px;
+   min-height:400px;
+   height:100%;
+}
+
+#rightcol div.text
+{
+   padding: 6px;
+   text-align: justify;
+}
+
+#rightcol div.sectiontitle, #rightcol .sectiontitle span
+{
+   padding: 6px 6px 6px 3px;
+   background-color: #706a6a;
+   color: #f7b76b;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+#dShoppingCart
+{
+    float: right;
+    margin-right: 20px;
+}
+
+#ShopCartTitle
+{
+   padding: 6px 6px 6px 3px;
+   color: #800000;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+    
+}
+
+#ShopCartTitle H1
+{
+    font-size: 1.5em;
+}
+
+.CartProductName
+{
+    width: 250px;    
+}
+
+#DepartmentsRow
+{
+    background-color: #FFFFFF;
+}
+
+
+/* Center Column */
+#centercol
+{
+   padding: 1px 5px 2px 5px;
+   background-color: white;
+   width :400px;
+}
+
+#center2col
+{
+   float:left;
+   padding: 1px 5px 2px 5px;
+   background-color: #FFF;
+   width :600px;
+   min-height:400px;
+   font-size: 10px;
+   left:185px;
+
+}
+
+#centerLcol
+{
+    position:absolute;
+    clear:both;
+    float: left;
+    padding: 1px 5px 2px 5px;
+    background-color: #FFF;
+    left: 190px;
+    top:5px;
+    width: 580px;
+    min-height: 400px;
+}
+
+
+
+#centercolcontent
+{
+   padding: 15px 6px 15px 6px;
+}
+
+#centercolcontent div.sectiontitle, #centercolcontent .sectiontitle span
+{
+   font-weight: bold;
+   font-size: larger;
+   color: #b45d16;
+}
+
+#sectiontitle H2
+{
+   font-weight: bold;
+   font-size: larger;
+   color: #b45d16;
+}
+
+
+.sectionsubtitle
+{
+   font-weight: bold;
+   padding-bottom: 4px;
+}
+
+/* Header */
+/*
+#header
+{
+    padding: 5px;
+    margin: 0px;
+    width: 100%;
+    height: 100px;
+     z-index :100;
+    position:fixed;
+    top: 1px;
+    left: 1px;
+
+}*/
+
+
+
+#header2
+{
+   padding: 0px;
+   margin: 0px;
+   width: 780px;
+   height: 130px;
+   background-image: url(images/bh_header.png);
+}
+
+
+#dUserName A
+{
+    color:#FFFFFF;
+    font-size:small;
+    font-weight:bolder;
+    padding:2px 1px;
+    text-decoration:none;
+}
+
+#dUserName
+{
+    color:#FFFFFF;
+    font-size:small;
+    font-weight:bolder;
+    padding:2px 1px;
+    text-decoration:none;
+}
+
+#headermenu
+{
+   position: relative;
+   top: 153px;
+   left: 245px;
+   width: 700px;
+   padding: 2px 2px 2px 2px;
+}
+
+
+#adminMenu
+{
+    width: 50px; 
+    background-color: #c30000; 
+    float: left;   
+}
+
+
+#adminView
+{
+    float: right;
+    height: 24px;
+    text-align: center;
+    width: 80px;
+    right: 125px;
+    position:relative;
+    color:#FFFFFF;
+    display:none;
+    font-size:medium;
+    left:15px;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    text-decoration:none;
+}
+
+.headermenulink
+{
+   font-family: Impact;
+   font-size: 17px;
+   text-transform: uppercase;    
+}
+
+.headermenulink a
+{
+   text-decoration: none;
+   color: black; 
+}
+
+.headermenulink a:hover
+{
+   text-decoration: underline overline;
+   color: black; 
+}
+
+.highlight
+{
+   background-color: #fefbd2;
+   color: #000080;
+}
+
+.highlightcity
+{
+   background-color: #df2e05;
+}
+
+.highlightstate
+{
+   background-color: #f4c977;
+}
+
+.highlightcountry
+{
+   background-color: #818689;
+}
+
+
+/* Poll Box */
+.pollbox
+{
+    border: thin solid #800000;
+    font-size: 11px;
+}
+
+.pollcontent
+{
+   padding: 6px;
+}
+
+.pollquestion
+{
+   font-size: 13px;
+   font-weight: bold;
+}
+
+.polloptions
+{
+    padding-top: 10px 0 4px 0;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.pollbar
+{
+   background-color: red;
+   font-size: 4px;   
+}
+
+/* Progress Bar */
+
+#progressbarcontainer
+{
+   width: 544px;
+   height: 32px;
+   border: solid 1px black;
+   padding: 1px;
+}
+
+#progressbar
+{
+    width: 0px;
+    height: 32px;
+    background-repeat: repeat-x;
+    background: url(images/glass1_small.jpg);
+}
+
+/* Newsletter */
+.newsletterbox
+{
+    font-size: 11px;
+}
+
+#NewsletterBox
+{
+    border: thin solid #800000;
+    font-size: 11px;
+    background-color: #FFFF99;
+    width: 475px;
+}
+
+.newsletterboxcontent
+{
+   padding: 6px;
+}
+
+ul.NewsletterList
+{
+    list-style-image: url('images/filledbeer.gif');
+    list-style-type: none;
+}
+
+
+/* Forum */
+
+.ForumHeaderNav
+{
+    text-align: center; 
+    font-weight: bold;
+}
+
+.postinfo
+{
+   background-color: #f9eaa6;
+   font-weight: bold;
+   text-align: center;
+}
+
+.posttitle
+{
+   padding: 3px;
+   margin-bottom: 10px;
+   background-color: #f09d35;
+   color: black;
+   font-weight: bold;
+   text-align: right;
+}
+
+.postbody
+{
+   padding: 3px;
+}
+
+.MoveThreadBody
+{
+    display:none; 
+    border-top: dashed 1px;
+    border-right: dashed 1px;
+}
+
+.shadow
+{
+    float: left;
+    background-color: #aaa;
+    margin-top: 8px;
+}
+.shadow img {
+	margin: -4px 4px 4px -4px;
+	display: block;
+	position: relative;
+	padding: 4px;
+	background-color: #fcfcfc;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+
+.ProductThumb
+{
+    margin: 10px 10px 10px 5px;
+    float: left;
+    background-color: #aaa;
+}
+
+.ProductThumb img
+{
+	margin: -4px 4px 4px -4px;
+	display: block;
+	position: relative;
+	padding: 4px;
+	background-color: #fcfcfc;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+
+A.ProductTitle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    color: #990000;
+    border-bottom-style: dotted;
+    border-width: thin;
+    text-decoration: none;
+}
+
+.ProductPrice
+{
+    font-size: large;
+    font-weight: bold;
+}
+
+#FeaturedProductTable
+{
+    width: 90%;
+    text-align: center;
+}
+
+
+
+/* Shopping Cart */
+
+#dOrderFilter
+{
+    font-size: .3em;
+    margin-bottom: 12px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+#ShoppingCartItem
+{
+    text-align: left;
+}
+
+#FeaturedProductBox, #shoppingcartbox
+{
+    padding: 0px 1px 3px 1px;
+    font-size: 11px;
+    text-align: center;
+    border: 1px dashed #FFFFFF;
+    background-color: #CC6600;
+}
+
+#FeaturedProductBox a, #shoppingcartbox a
+{
+    color: #521300;
+    font-weight: bold;
+}
+
+
+#FeaturedProductTitle, #shoppingcartboxtitle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #800000;
+}
+
+#shoppingcartboxcontent
+{
+   padding: 6px;
+}
+
+.ProductImage
+{
+    float: left; 
+    padding: 4px; 
+    text-align: center;
+}
+
+.ProductHR
+{
+    width: 100%; 
+    height: 1px;   
+}
+
+
+.LargeInput 
+{
+	font-size: 1.5em; 
+	border: 1px solid #BAFEB1;
+	color: #3E79A4;
+	padding: 2px;
+	background: url(images/gradients/formBackground.gif) repeat-x; }
+	
+.LargeInputLabel
+{
+	font-size: 1.3em; 
+	color: #404048;
+	
+}
+
+A.loginbox:link, visited
+{
+    color: #663300;
+}
+
+A.loginbox:hover
+{
+    color: #FF6600;
+    font-weight: bold;
+}
+
+
+
+a.MainNavLink:link
+{
+    padding: 2px 1px 2px 1px;
+    color: #FFF1D7;
+    font-size: Medium;
+    text-decoration: none;
+}
+
+a.MainNavLink:visited
+{
+    padding: 2px 1px 2px 1px;
+    color:#FFF1D7;
+    font-size:Medium;
+    text-decoration: none;
+}
+
+a.MainNavLink:active
+{
+    padding: 2px 1px 2px 1px;
+    color:#FFF1D7;
+    font-size:Medium;
+    text-decoration: none;
+}
+
+a.MainNavLink:hover
+{
+    padding: 2px 1px 2px 1px;
+    color:#FFF1D7;
+    font-size:Medium;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+.addressbook
+{
+    width:600px;
+    font:82% arial,helvetica,"Nimbus Sans L",sans-serif;
+    border:solid 1px #666;
+    margin-left:30px; /* make room on the left for the index */
+} 
+.addresstitile
+{
+	color:#666;
+	background-color:#eee;
+	padding:9px 10px 7px;
+} 
+
+.contact-index
+{
+	float:left;
+	margin:40px 0px 0px 30px;
+	background:#fff url(images/bg_index_border.gif) left top no-repeat;
+	width:29px;
+	padding-top:0.5em;
+	position:relative;
+	color:#666;
+}   
+.contact-index OL
+{
+	background:#fff url(images/bg_index_border.gif) left bottom no-repeat;
+	padding-bottom:0.5em;    	
+} 
+.contact-index LI
+{
+	font-size:95%;
+    margin-left:1px;
+    font-size:95%;
+    list-style-type:none;
+    text-align:center;
+}   
+.contact-index A
+{
+	color:#039;
+	font-weight:bold;
+	cursor:pointer;
+} 
+.contact-index A:hover
+{
+	text-decoration:underline;
+	background-color:#eee;
+}     
+  
+  
+.contact-list OL
+{
+	background-color:#fff;
+	padding:10px 10px 10px 10px;
+    overflow:auto;
+    height:560px;
+}
+.contact-list LI
+{
+    list-style-type:none;
+    color:#666;
+}
+.contact-list H2
+{
+    font-size:140%;
+    margin:0px;
+    display:block;
+}
+.contact-list TABLE
+{
+	border-top:solid 2px #999;
+	padding:7px 0px 0px 0px;
+    margin:-12px 0px 0px 24px;
+    text-align:left;
+}
+.contact-list TABLE TD
+{
+	width:170px;
+	vertical-align:top;
+	padding:7px;
+	border-bottom:solid 1px #ccc;
+	color:#666;
+}   
+.contact-list .card .contact H3
+{
+    overflow:hidden;
+	padding:0px;
+	margin:0px;
+    font-size:100%;
+    display:block;
+}
+.contact-list .card .email
+{
+    overflow:hidden;
+    display:block;
+    font-size:85%;
+    color:#039;
+    text-decoration:none;
+} 
+.hidden
+{
+	display:none;
+} 
+
+
+
+h1.TitleHeader
+{
+    color: #996600;
+    font-size: medium;
+    font-weight: bolder;
+    font-family: georgia;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 4px;
+}
+
+
+.grid 
+{ 
+	width:700px; 
+	font-family:Tahoma;
+}
+.grid H2 
+{ 
+	margin:0; padding:0; 
+	color:#ffffff;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+}
+.grid .mid
+{
+	padding:3px 0px 0px 0px;
+}
+.grid .datatable
+{
+	width:100%;
+	color:#666;
+    border-bottom:solid 1px #bbd9ee;
+}    
+.grid .datatable TH
+{
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:0px;
+    text-align:left;
+    padding:2px 4px;
+    color:#333333;
+    border-bottom:solid 2px #bbd9ee;
+}
+.grid .datatable TH A
+{ 
+	text-decoration:none;
+	padding-right:18px; 
+	color:#0066cc;
+}
+.grid .datatable TH.sortasc A { background:url(images/asc.gif) right center no-repeat; }
+.grid .datatable TH.sortdesc A { background:url(images/desc.gif) right center no-repeat; }
+.grid .datatable TD
+{
+    font-size:11px;
+    text-align:left;
+    padding:6px 4px;
+    border-bottom:solid 1px #bbd9ee;
+}      
+.grid .datatable .row:hover
+{
+	background-color:#fffacd;
+	color:#000;
+}
+.grid .datatable .first { padding-left:10px; }
+.grid .datatable .row:hover .first
+{
+    background-repeat:no-repeat;   
+	background-image:url(images/bullet.gif);
+}  
+/* Data Pager Styles */
+.pager
+{
+    font-family: arial,sans-serif;
+    text-align: center;
+    padding: 6px;
+    float: right;
+} 
+.pager SPAN.command, .pager SPAN.current, .pager A.command
+{
+    color: #521300;
+    padding: 0px 5px;
+    text-decoration: none;
+    border: none;
+    background-color: #FFFFFF;
+}
+.pager A.command:hover
+{
+    border: solid 2px #881F00;
+    background-color: #521300;
+    color: #fff;
+    padding: 0px 3px;
+    text-decoration: none;
+}    
+/*
+.pager SPAN.current
+{
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 0px 6px;
+    font-size: 16px;
+    background-color: #800000;
+}
+*/
+
+/* Accordian */
+
+.accordion  
+{
+    font-size:8.5pt;
+    font-family:Tahoma;
+    background:url(images/item_bg.gif);
+}
+.accordion .header
+{
+    cursor: pointer;
+    background: url(images/hd_bg.gif) repeat-x;
+    border-bottom: solid 1px #57566f;
+    border-bottom-color: #800000;
+}
+.accordion .header DIV
+{
+    cursor:pointer;
+    height:30px;
+    padding-left:40px;
+    background-color:Transparent;
+    background-position:center left;
+    background-repeat:no-repeat;
+}
+.accordion .header SPAN
+{
+    cursor:pointer;
+    font-weight:bold;
+    display:block;
+    padding-top:8px;
+    color:#fff;
+}    
+.accordion .header:hover
+{
+    cursor:pointer;
+    height:31px;
+    background-color:Transparent;
+    background:url(images/hd_hover_bg.gif) repeat-x;
+    border-bottom:none;
+}    
+.accordion UL    
+{
+    padding:0;
+    margin:5px 5px 5px 15px;
+    list-style-type:none;
+}
+.accordion LI
+{
+    background-color:Transparent;
+    background-repeat:no-repeat;
+    background-position:left center;
+    vertical-align:middle;
+    padding:6px 5px 6px 25px;
+    cursor:hand;
+}
+.accordion LI DIV
+{
+    padding-left: 10px;
+    color: #993333;
+    cursor: hand;
+}
+.accordion LI:hover
+{
+    text-decoration:underline;
+}
+
+.LoginLinks
+{
+    border-top: solid 1px black; 
+    margin-top: 2px; 
+    padding-top: 2px;
+}
+
+#dAdmin H1
+{
+    padding: 5px;
+    color: #800000;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+a.AdminNavLink
+{
+    color: #800000;
+    text-decoration: none;
+    font-size: small;
+}
+
+.FormLabel
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    display: block;
+    clear: both;
+}
+
+.FormInput
+{
+    padding-left: 110px;
+}
+
+a.AdminNavLink:active
+{
+    color: #800000;
+    text-decoration: none;
+    font-size: small;
+    font-weight :bold;
+}
+
+a.AdminNavLink:visited
+{
+    color: #800000;
+    text-decoration: none;
+    font-size: small;
+}
+
+
+a.AdminNavLink:hover
+{
+    color: #800000;
+    text-decoration: none;
+    font-size: small;
+    font-weight :bold;
+}
+
+#dFrame
+{
+    width: 350px; 
+    margin-top: 20px;
+}
+
+A.dFrame
+{
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+
+
+.ListTitle
+{
+    margin: 1px 20px 1px 1px;
+    padding: 1px;
+    text-align: left;
+    width: 250px;
+    float: left;
+    clip: rect(auto, 200px, auto, auto);
+}
+
+.ListTitle A
+{
+    color: #b45d16;
+    font-size: small;
+}
+
+.ListTitle A:Hover
+{
+     font-weight :bold ;
+}
+
+
+/* Admin header */
+
+
+.AdminLayout
+{
+    border-style: none;
+    padding: 1px;
+    width: 95%;
+}
+
+.AdminLayout H1
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    color: #800000;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#dAdminHeader
+{
+    margin: 5px 5px 15px 5px;
+    display: block;
+}
+
+#dAdminHeader ul
+{
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+	
+#dAdminHeader ul li {
+	display:inline;
+    list-style-type: square;
+	margin:0;
+	padding:0;
+}
+
+#dAdminHeader ul li a
+{
+    display: block;
+    float: left;
+    margin: 0 0 0 1px;
+    padding: 3px 10px;
+    text-align: center;
+    color: #b45d16;
+    text-decoration: none;
+    position: relative;
+    left: 15px;
+    font-size: small;
+}
+	
+#dAdminHeader ul li a:hover {
+	background:transparent;
+	color:#b45d16;
+}
+
+#dAdminHeader ul li a.active,
+#dAdminHeader ul li a.active:hover {
+	font-weight:bolder;
+}
+
+#dAdminHeader ul li a span {
+	display:block;
+}
+
+
+.AdminList
+{
+    border-style: none;
+    display: block;
+    float: left;
+    clear: both;
+    position: relative;
+    top: 0px;
+    width: 95%;
+}
+
+
+.AdminListHeader
+{
+    padding: 1px 4px 2px 4px;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    background-color: #800000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.AdminRightCell
+{
+    text-align: right
+}
+
+
+.AdminListItem
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 3px;
+    background-color: #FFFFFF;
+    text-align: left;
+    font-size: small;
+    width:600px;
+}
+
+.AltAdminListItem
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 3px;
+    background-color: #EFEFEF;
+    text-align: left;
+    font-size: small;
+    width:600px;
+}
+
+
+.AdminImg
+{
+    margin-right: 5px;
+    margin-left: 5px;
+    border-style:none;
+}
+
+
+
+#ListBox
+{
+    border: thin solid #800000;
+    background-color: #FFFFFF;
+    min-height: 400px;
+    display: block;
+    float: left;
+    clear: right;
+    width:95%;
+}
+
+.Homearticlebox
+{
+    background-color:#FEFEF0;
+    color:#B45D16;
+    float:left;
+    font-size:smaller;
+    margin-bottom:5px;
+    margin-top:2px;
+    padding:0;
+    width:350px;
+}
+
+.articlebox, .Altarticlebox
+{
+    color: #b45d16;
+    padding: 6px 6px 6px 6px;
+    font-size: smaller;
+    width: 95%;
+}
+
+
+.articlebox
+{
+    background-color: #FFF;
+}
+
+.Altarticlebox
+{
+    background-color: #FFF8EC;
+}
+
+#dArtileTitle.H1
+{
+    font-size:x-large ;
+    font-weight: bold;
+    color: #995117;
+    text-decoration: none;
+    margin-right: 25px;
+    margin-left: 5px;
+    margin-top :10px;
+    margin-bottom: 2px;
+    text-align :center ;
+}
+
+
+.articletitle
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: #995117;
+    text-decoration: none;
+    margin-right: 25px;
+    margin-left: 5px;
+}
+
+.articleMore
+{
+    font-size: small;
+    font-weight:200;
+    color: #995117;
+    text-decoration: none;
+    margin-right: 25px;
+    margin-left: 5px;
+}
+
+
+.articleabstract
+{
+    padding: 6px 3px 5px 10px;
+    font-size: small;
+}
+
+#dArticleSupport
+{
+    width: 575px;
+}
+
+
+#dArticleBody
+{
+    padding: 5px;
+    float: left;
+    clear: right;
+}
+
+
+.ArticleFooter
+{
+    clear: left;
+    float: right;
+    clip: rect(auto, 25px, auto, auto);
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.ArticleFooter A
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #800000;
+    font-weight: 300;
+}
+
+.comment
+{
+   padding: 4px 0px 4px 0px;
+   font-size: smaller;
+}
+
+#ArticleDetailBox
+{
+    padding: 2px;
+    margin: 5px 7px 10px 7px;
+    min-height :400px
+}
+
+#ArticleDetailBox H1
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: none;
+    margin-left: -10px;
+}
+
+
+#ContentTitleDiv
+{
+    padding: 3px 10px 5px 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+
+#ContentBodyDiv
+{
+    padding: 5px 10px 15px 10px;
+}
+
+
+  div.article_entry_header {
+	background-image: url('images/icon_blog.gif');
+	background-repeat: no-repeat;
+	height: 45px;
+	padding: 0 0 3px 50px;
+	vertical-align: bottom;
+  }
+
+
+#MainShadow
+{
+    position: relative;
+    top: 2;
+    left: 10;
+    height: auto;
+    width: 750px;
+    background-color: #333333;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+
+/* Modal Dialog */
+#PopUpBackGround
+{
+    z-index: 1400;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #333333;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    display:none;
+}
+
+#LoginDlg
+{
+    background-color : White;
+    left: 275px; 
+    top: 150px;
+    width:325px;
+    height : 190px;
+    z-index : 1500;
+    position :fixed;
+    border: thin ridge #CC6600;
+    padding: 2px 2px 2px 2px;
+    display :none;
+}
+
+A.LoginDialog
+{
+    color: #800000;
+}
+
+#btnLogIn
+{
+  left: 200px;   
+}
+
+
+#PictureDlg
+{
+    background-color: Black;
+    left: 400px;
+    top: 250px;
+    z-index: 1500;
+    position: fixed;
+    border: thin ridge #CC6600;
+    padding: 2px 2px 2px 2px;
+    display: none;
+}
+
+#dCaption
+{
+    margin: 3px 5px 2px 5px;
+    color: White;
+    height: 30px;
+}
+
+#dPictTitle
+{
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #000000;
+    height: 26px;
+    vertical-align: middle;
+    
+}
+
+.GaleryBtn
+{
+    width: 26px;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+#container2
+{
+   background-color: #FFFFFF;
+   margin-right: 200px;
+}
+
+#MainColHome
+{
+    float:left;
+    left:0;
+    min-height:150px;
+    width:100%;
+}
+
+#MidColHome
+{
+    margin: 4px;
+    min-height: 190px;
+    width: 180px;
+    float: right;
+    left: 380px;
+}
+
+/* Rating */
+
+.ArticleRating
+{
+    float: right;
+    margin:3px 75px 10px 10px;
+}
+
+.ratingStar {
+    font-size: 0pt;
+    width: 19px;
+    height: 19px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+.filledRatingStar {
+    background-image: url(Images/filledbeer.gif);
+
+}
+
+.emptyRatingStar {
+    background-image: url(Images/EmptyBeer.gif);
+}
+
+.savedRatingStar {
+    background-image: url(Images/SavedBeer.gif);
+}
+
+/* New Layout */ 
+
+
+div#content-inner-2col
+{
+    margin: 0px 15px 20px 10px;
+    background-color: #FFFFFF;
+}
+
+#content-inner-2col A
+{
+    color: #000000;
+}
+
+
+div#first-column, div#third-column
+{
+    clear: both;
+    width: 180px;
+    min-height: 392px;
+}
+
+div#first-column
+{
+    float: left;
+    background-color: #E6BB70;
+}
+
+div#third-column
+{
+    float: right;
+    background-color: #E6BB70;
+}
+
+div#first-column a, div#third-column a
+{
+    color: #521300;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+div#first-column hr
+{
+    color: #521300;
+    width:85%;
+}
+
+#rightcol
+{
+    float :right ;
+    padding: 1px 5px 2px 5px;
+    width:160px;
+   background-color: #E6BB70;
+   font-size: 10px;
+   min-height:400px;
+   height:100%;
+}
+
+
+div#first-column div.text
+{
+   padding: 6px 6px 6px 6px;
+   text-align: justify;
+}
+
+div#first-column div.sectiontitle, div#third-column .sectiontitle span
+{
+   padding: 6px 6px 6px 3px;
+   background-color: #706a6a;
+   color: #f7b76b;
+   font-size: 12px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+
+div#content
+{
+    margin: 3px 3px 3px 3px;
+}
+
+div#content-2coll
+{
+    margin: 5px 10px 5px 200px;
+}
+div#content-2colr
+{
+    margin: 0px;
+}
+
+#left-content
+{
+    float: left;
+    margin: 5px 200px 5px 10px;
+    background-color: #CC00FF;
+}
+
+#right-content
+{
+    margin: 5px 10px 5px 200px;
+}
+
+div#content-inner
+{
+    border: 1px solid gray;
+    min-height: 392px;
+}
+
+
+
+
+
+
+.AddEditFrame
+{
+    border: thin solid #800000;
+    background-color: #FEFEFE;
+}
+
+
+.formField
+{
+    background: #FFFFFF url(Images/form_field_bkgd.png) top repeat-x left;
+    font: Tahoma, "Trebuchet MS" , Arial, sans-serif;
+    font-size: 11px;
+    padding: 4px;
+    border: 1px solid #8C8C8C;
+}
+
+
+/* OpenId */
+
+#dOpenId
+{
+    margin-left: 25px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.openid_identifier
+{
+    background-position: left center;
+    background: transparent url(/images/openid.gif) no-repeat scroll left center;
+    height: 28px;
+    padding-left: 18px;
+    margin: 5px 0 5px 25;
+    padding: 3px;
+    border: 1px solid #999999;
+    font-family: Trebuchet MS,Helvetica,sans-serif;
+    font-size: 100%;
+    width: 200px;
+}
+
+.openid_identifier_dlg
+{
+    background-position: left center;
+    background: transparent url(/images/openid.gif) no-repeat scroll left center;
+    height: 18px;
+    padding-left: 18px;
+    margin: 5px 0 5px 25;
+    padding: 3px;
+    border: 1px solid #999999;
+    font-family: Trebuchet MS,Helvetica,sans-serif;
+    font-size: 100%;
+    width: 200px;
+}
+
+
+
+/* Calendar Classes */
+
+.TodayDayStyle
+{
+    color: #FFFFFF;
+    background-color: #990000;
+}
+ 
+.DayStyle 
+{
+  text-align :center ;
+ vertical-align :text-top ;
+ background-color :White;
+       
+}
+
+.DayHeaderStyle
+{
+    color: #FFFFFF;
+    background-color: #990000;
+
+}
+
+.TitleStyle 
+{
+ font-size :small;
+  font-family:Tahoma;
+  font-weight :bold ;
+ background-color :#990000;
+ color :White ;
+}
+
+.OtherMonthDayStyle
+{
+    background-color: #CCCCCC;
+}
+
+/* Event Calendar */
+
+.AddEvent
+{
+    width: 125px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.AddEvent a
+{
+    font-weight: bold;
+    color: #800000;
+    text-decoration: none;
+}
+
+
+.EventTitle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    color: #990000;
+}
+
+
+#dEventLink a
+{
+    color: #521300;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+
+.AdminTable
+{
+    table-layout: fixed;
+    empty-cells: show;
+    text-align: center;
+    border-style: none;
+    border-width: 0px;
+    padding: 0px;
+    margin: 5px 20px 5px 40px;
+    width: 95%;
+}
+
+
+fieldset
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #000000;
+}
+
+
+img.ProductThumb
+{
+   float:left;
+   margin :5px;
+   border-width:1px;
+}
+
+fieldset.OrderItems
+{
+    padding: 3px 15px 3px 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 200px;
+}
+
+
+#AddEditDetails
+{
+    border: 1px solid #800000;
+    background-color: #FEFEFE;
+}
+
+/* Photo Galery */
+
+.AlbumPhoto
+{
+    padding: 2px;
+    vertical-align: bottom;
+    text-align: center;
+    width: 100px;
+}
+
+.AlbumShadow
+{
+    float: left;
+    background-color: #aaa;
+    margin-top: 8px;
+    margin-left : 20px;
+}
+
+.AlbumShadow img
+{
+	margin: -4px 4px 4px -4px;
+	display: block;
+	position: relative;
+	padding: 4px;
+	background-color: #fcfcfc;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+
+.PhotoTitle
+{
+   clear: left; 
+}
+
+.AlbumPhoto a
+{
+    color: #800000;
+    font-weight: bold;
+}
+
+#GalleryTitle h2
+{
+    color: #800;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.AlbumSeparator
+{
+    
+}

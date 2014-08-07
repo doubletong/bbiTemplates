@@ -1,0 +1,187 @@
+<VisualStudioProject>
+  <CSHARP ProjectType="Local" ProductVersion="7.10.3077" SchemaVersion="2.0" ProjectGuid="37C428E6-ECCB-4AC5-8EA4-9549451690D4">
+    <Build>
+      <Settings ApplicationIcon="" AssemblyKeyContainerName="" AssemblyName="TBHBLL" AssemblyOriginatorKeyFile="" DefaultClientScript="JScript" DefaultHTMLPageLayout="Grid" DefaultTargetSchema="IE50" DelaySign="false" OutputType="Library" PreBuildEvent="" PostBuildEvent="" RootNamespace="TBHBLL" RunPostBuildEvent="OnBuildSuccess" StartupObject="">
+        <Config Name="Debug" AllowUnsafeBlocks="false" BaseAddress="285212672" CheckForOverflowUnderflow="false" ConfigurationOverrideFile="" DefineConstants="DEBUG;TRACE" DocumentationFile="" DebugSymbols="true" FileAlignment="4096" IncrementalBuild="false" NoStdLib="false" NoWarn="" Optimize="false" OutputPath="bin\Debug\" RegisterForComInterop="false" RemoveIntegerChecks="false" TreatWarningsAsErrors="false" WarningLevel="4" />
+        <Config Name="Release" AllowUnsafeBlocks="false" BaseAddress="285212672" CheckForOverflowUnderflow="false" ConfigurationOverrideFile="" DefineConstants="TRACE" DocumentationFile="" DebugSymbols="false" FileAlignment="4096" IncrementalBuild="false" NoStdLib="false" NoWarn="" Optimize="true" OutputPath="bin\Release\" RegisterForComInterop="false" RemoveIntegerChecks="false" TreatWarningsAsErrors="false" WarningLevel="4" />
+      </Settings>
+      <References>
+        <Reference Name="mscorlib" AssemblyName="mscorlib" HintPath="mscorlib.dll" />
+        <Reference Name="Microsoft.VisualBasic" AssemblyName="Microsoft.VisualBasic" HintPath="Microsoft.VisualBasic.dll" />
+        <Reference Name="System.Xml.Linq" AssemblyName="System.Xml.Linq" HintPath="System.Xml.Linq.dll" />
+        <Reference Name="System.Data.Entity" AssemblyName="System.Data.Entity" HintPath="System.Data.Entity.dll" />
+        <Reference Name="System.Web" AssemblyName="System.Web" HintPath="System.Web.dll" />
+        <Reference Name="Joel.Net.Akismet" AssemblyName="Joel.Net.Akismet" HintPath="Joel.Net.Akismet.dll" />
+        <Reference Name="System.Configuration" AssemblyName="System.Configuration" HintPath="System.Configuration.dll" />
+        <Reference Name="System.Drawing" AssemblyName="System.Drawing" HintPath="System.Drawing.dll" />
+        <Reference Name="System" AssemblyName="System" HintPath="System.dll" />
+        <Reference Name="System.Web.Extensions" AssemblyName="System.Web.Extensions" HintPath="System.Web.Extensions.dll" />
+        <Reference Name="System.Core" AssemblyName="System.Core" HintPath="System.Core.dll" />
+        <Reference Name="TwitterLib" AssemblyName="TwitterLib" HintPath="TwitterLib.dll" />
+        <Reference Name="System.Runtime.Serialization" AssemblyName="System.Runtime.Serialization" HintPath="System.Runtime.Serialization.dll" />
+        <Reference Name="System.Xml" AssemblyName="System.Xml" HintPath="System.Xml.dll" />
+        <Reference Name="System.Data" AssemblyName="System.Data" HintPath="System.Data.dll" />
+      </References>
+    </Build>
+    <Files>
+      <Include>
+        <File RelPath="AssemblyInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\MyApplication.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\MyComputer.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\MyProject.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\InternalXmlHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\Article.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ArticleHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\ArticleRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\ArticlesEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\Category.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\Comment.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\BaseArticleRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\CategoryRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\CommentRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\BaseHandler.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\BeerHouseDataException.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\TBHCache.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\TheBeerHouseSection.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ContactFormElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ArticlesElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\PollsElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\NewslettersElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ForumsElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\StoreElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\GalleryElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\CalendarElement.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\BaseRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ContextExtensions.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\AvailabilityImage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.Web.UI\CountryDropDownList.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.Web.UI\StateDropDownList.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\BaseEntity.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\BaseEventRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\CalendarofEventsEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\EventInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\EventRSVP.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\EventHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\EventPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\EventRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.EventCalendar\EventRSVPRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\vCalendar.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\vCalHandler.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\BaseForumRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\Forum.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\ForumModel.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ForumHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\Post.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\ForumsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Forums\PostsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\RSSForum.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\Album.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\AlbumRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\BaseGalleryRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\GalleryHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\GalleryImage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\GalleryEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\Picture.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\GalleryPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Gallery\PicturesRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\Globals.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\GravatarHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\Helpers.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\IArticleRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\IBaseEntity.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ICache.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\CacheGetOptions.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ICacheItemExpiration.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\ICategoryRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Articles\ICommentRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\URLRewrite.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My.Resources\Resources.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\MySettings.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My\MySettingsProperty.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\AdminMenuItems.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\AdminMenuItem.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\SiteMapEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\SiteMapInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\SiteMapRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\SiteMapsHandler.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\TBHSiteMapProvider.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Newsletters\Newsletter.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Newsletters\SubscriberInfo.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Newsletters\NewsletterEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Newsletters\NewslettersRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\NewsletterStatus.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Newsletters\SubscriptionType.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\BasePollRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\Poll.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\PollEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\PollOption.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\PollOptionList.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\PollOptionsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL\PollsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\RSSFeed.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\Authorization.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\AuthorizedList.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\OpenID.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\OpenIdData.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\nTwitter.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\BaseShoppingCartRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\Department.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\DepartmentRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\StatusCode.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\Order.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrderDetails_Old.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrderItem.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrderItemsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrdersRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrderStatus.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\OrderStatusesRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\Product.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ProductsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ProductsRSS.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ShippingMethod.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ShippingMethodsRepository.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ShoppingCartItem.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ShoppingCart.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.BLL.Store\ShoppingEntities.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\StoreHelper.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.UI\AdminPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.UI.Articles\ArticlePage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.UI\BasePage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.UI\BaseWebPart.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\ForumPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\NewsLetterPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.UI\RoleAdminPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\StoreAdminPage.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse\UIUtility.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="TheBeerHouse.My.Resources\ValidationResources.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="VB$AnonymousType_0!1.cs" SubType="Code" BuildAction="Compile" />
+        <File RelPath="Newsletters.NewsletterModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Navigation.SiteMapModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Events.CalendarofEvents.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Gallery.GalleryModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Gallery.GalleryModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Events.CalendarofEvents.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Forums.ForumModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Gallery.GalleryModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Forums.ForumModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Polls.Polling.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Forums.ForumModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Articles.ArticlesModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Articles.ArticlesModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Articles.ArticlesModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Newsletters.NewsletterModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Polls.Polling.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Navigation.SiteMapModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Store.ShoppingModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Navigation.SiteMapModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Store.ShoppingModel.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Events.CalendarofEvents.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Polls.Polling.msl" BuildAction="EmbeddedResource" />
+        <File RelPath="Store.ShoppingModel.ssdl" BuildAction="EmbeddedResource" />
+        <File RelPath="Newsletters.NewsletterModel.csdl" BuildAction="EmbeddedResource" />
+        <File RelPath="TheBeerHouse.ValidationResources.resx" BuildAction="EmbeddedResource" />
+        <File RelPath="TheBeerHouse.Resources.resx" BuildAction="EmbeddedResource" />
+      </Include>
+    </Files>
+  </CSHARP>
+</VisualStudioProject>

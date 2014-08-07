@@ -1,0 +1,345 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using BBICMS;
+using BBICMS.UI;
+
+public partial class Admin_Users_AddEditUser : AdminPage
+{
+    private string CurrentUserName
+    {
+        get
+        {
+            if (ViewState["CurrentUserName"] != null)
+            {
+                return ViewState["CurrentUserName"].ToString();
+            }
+
+            if ((Request["CurrentUserName"] != null))
+            {
+                return Request["CurrentUserName"];
+            }
+            return string.Empty;
+
+        }
+        set { ViewState["CurrentUserName"] = value; }
+    }
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        this.Title = string.Format(this.Title, Helpers.Settings.SiteName);
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        lblRolesFeedbackOK.Visible = false;
+
+        if (!IsPostBack)
+        {
+
+            if (string.IsNullOrEmpty(CurrentUserName) == false)
+            {
+                UserProfile1.Username = CurrentUserName;
+                //Better make sure
+                BindUser();
+            }
+            else
+            {
+                ClearUser();
+            }
+        }
+    }
+    
+    private MembershipUser GetMember()
+    {
+        MembershipUser mu = Membership.GetUser(CurrentUserName);
+        return mu;
+    }
+
+    protected void BindUser()
+    {
+        MembershipUser mu = GetMember();
+
+        //dUserName.Visible = false;
+        //dEMail.Visible = false;
+        //dPassword.Visible = false;
+        //tUserStatus.Visible = true;
+        //trRegistered.Visible = true;
+        //trLastActivity.Visible = true;
+        //trLastLogin.Visible = true;
+        //trQuestion.Visible = false;
+        //trAnswer.Visible = false;
+
+
+
+        ltlUserName.Text = mu.UserName;
+        
+       
+        ltlEMail.Text = mu.Email;
+        //lnkEmail.NavigateUrl = "mailto:" + mu.Email
+        lblRegistered.Text = mu.CreationDate.ToString("f");
+        lblLastLogin.Text = mu.LastLoginDate.ToString("f");
+        lblLastActivity.Text = mu.LastActivityDate.ToString("f");
+
+        chkOnlineNow.Checked = mu.IsOnline;
+        chkApproved.Checked = mu.IsApproved;
+        chkLockedOut.Checked = mu.IsLockedOut;
+        chkLockedOut.Enabled = mu.IsLockedOut;
+
+        btnUpdateRoles.Visible = true;
+
+        BindRoles(mu.UserName);
+    }
+
+    protected void MergeUserInfo()
+    {
+        MembershipUser mu = GetMember();
+        //TODO: Something with thie method or delete.
+    }
+
+    protected void BindRoles()
+    {
+        BindRoles(string.Empty);
+    }
+
+    protected void BindRoles(string vUserName)
+    {
+        cblRoles.DataSource = Roles.GetAllRoles();
+        cblRoles.DataBind();
+
+        foreach (string role in Roles.GetRolesForUser(vUserName))
+        {
+            cblRoles.Items.FindByText(role).Selected = true;
+        }
+    }
+
+    protected void chkOnlineNow_CheckedChanged(object sender, EventArgs e)
+    {
+        MembershipUser User = Membership.GetUser(CurrentUserName);
+        if ((User != null))
+        {
+            chkOnlineNow.Checked = User.IsOnline;
+        }
+    }
+
+    protected void chkApproved_CheckedChanged(object sender, EventArgs e)
+    {
+        MembershipUser User = Membership.GetUser(CurrentUserName);
+        if ((User != null))
+        {
+            User.IsApproved = chkApproved.Checked;
+            Membership.UpdateUser(User);
+        }
+    }
+
+    protected void chkLockedOut_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chkLockedOut.Checked == false)
+        {
+            MembershipUser user = Membership.GetUser(CurrentUserName);
+            if ((user != null))
+            {
+                user.UnlockUser();
+                chkLockedOut.Enabled = false;
+            }
+        }
+    }
+
+    protected void btnUpdateRoles_Click(object sender, EventArgs e)
+    {
+        UpdateRoles(Membership.GetUser(CurrentUserName));
+    }
+
+    protected void btnNewRole_Click(object sender, EventArgs e)
+    {
+        if (!Roles.RoleExists(txtNewRole.Text.Trim()))
+        {
+            Roles.CreateRole(txtNewRole.Text.Trim());
+            BindRoles();
+        }
+    }
+
+    #region " Button Event Handlers "
+
+    protected void ClearUser()
+    {
+        UserProfile1.Username = string.Empty;
+
+        ltlUserName.Text = string.Empty;
+        ltlUserName.Visible = false;
+
+        ltlEMail.Text = string.Empty;
+        ltlEMail.Visible = false;
+
+        //txtUserName.Text = string.Empty;
+        //dUserName.Visible = true;
+
+        //txtEmail.Text = string.Empty;
+        //dEMail.Visible = true;
+
+        //dPassword.Visible = true;
+
+        CurrentUserName = string.Empty;
+
+        BindRoles();
+
+        //tUserStatus.Visible = false;
+        //trRegistered.Visible = false;
+        //trLastActivity.Visible = false;
+        //trLastLogin.Visible = false;
+        //trQuestion.Visible = true;
+        //trAnswer.Visible = true;
+
+        chkOnlineNow.Checked = false;
+        chkApproved.Checked = false;
+        chkLockedOut.Checked = false;
+
+        btnUpdateRoles.Visible = false;
+
+
+
+        lbDelete.Visible = false;
+    }
+
+    protected void lbCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ManageUsers.aspx");
+    }
+
+    protected void lbDelete_Click(object sender, EventArgs e)
+    {
+        if (Membership.DeleteUser(CurrentUserName))
+        {
+            ltlMessage.Text = "The User was deleted.";
+        }
+        else
+        {
+            ltlMessage.Text = "The User was not deleted.";
+        }
+    }
+
+    protected void UpdateRoles(MembershipUser mu)
+    {
+        string[] currRoles = Roles.GetRolesForUser(mu.UserName);
+
+        if (currRoles.Length > 0)
+        {
+            Roles.RemoveUserFromRoles(UserName, currRoles);
+        }
+
+        // and then add the user to the selected roles
+        List<string> newRoles = new List<string>();
+        foreach (ListItem item in cblRoles.Items)
+        {
+            if (item.Selected)
+            {
+                newRoles.Add(item.Text);
+            }
+        }
+        string[] userNames = { mu.UserName };
+        Roles.AddUsersToRoles(userNames, newRoles.ToArray());
+
+        lblRolesFeedbackOK.Visible = true;
+    }
+
+
+    protected void UpdateUser(MembershipUser mu)
+    {
+        //    if ((mu == null))
+        //    {
+        //        MembershipCreateStatus status = new MembershipCreateStatus();
+
+        //        mu = Membership.CreateUser(txtUserName.Text, txtPwd.Text, txtEmail.Text,
+        //                                   Question.Text, Answer.Text, true, out status);
+
+        //        if (status == MembershipCreateStatus.Success)
+        //        {
+        //            CurrentUserName = mu.UserName;
+
+        //            UpdateRoles(mu);
+
+        //            ltlMessage.Text = "The User has been added to the site.";
+
+        //            SmtpClient smtp = new SmtpClient();
+        //            string sMsg = "You have been added to the Beer House user list.";
+
+        //            try
+        //            {
+        //                SmtpSection smtpConfig = new SmtpSection();
+
+        //                if (string.IsNullOrEmpty(smtpConfig.From) == false)
+        //                {
+        //                    smtp.Send(new MailMessage(smtpConfig.From, txtEmail.Text,
+        //                                              string.Format("{0} User Account", "The Beer House"), sMsg));
+        //                }
+        //            }
+        //            catch (SocketException ex)
+        //            {
+        //            }
+
+
+        //            BindUser();
+
+        UserProfile1.Username = mu.UserName;
+        UserProfile1.SaveProfile();
+
+        //            trQuestion.Visible = false;
+        //            trAnswer.Visible = false;
+
+        //            Page.SetFocus(ltlMessage);
+        //        }
+        //        else
+        //        {
+        //            switch (status)
+        //            {
+        //                case MembershipCreateStatus.DuplicateEmail:
+        //                    ltlMessage.Text = "The User cannot be added because the e-mail is a duplicate.";
+        //                    break;
+        //                case MembershipCreateStatus.DuplicateProviderUserKey:
+        //                    ltlMessage.Text = "The User cannot be added because the Provder Key is a duplicate.";
+        //                    break;
+        //                case MembershipCreateStatus.DuplicateUserName:
+        //                    ltlMessage.Text = "The User cannot be added because the username is a duplicate.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidAnswer:
+        //                    ltlMessage.Text = "The User cannot be added because the answer is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidEmail:
+        //                    ltlMessage.Text = "The User cannot be added because the e-mail is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidPassword:
+        //                    ltlMessage.Text = "The User cannot be added because the password is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidProviderUserKey:
+        //                    ltlMessage.Text = "The User cannot be added because the Provider User Key is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidQuestion:
+        //                    ltlMessage.Text = "The User cannot be added because the question is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.InvalidUserName:
+        //                    ltlMessage.Text = "The User cannot be added because the username is invalid.";
+        //                    break;
+        //                case MembershipCreateStatus.ProviderError:
+        //                    ltlMessage.Text = "The User cannot be added because of a provider error.";
+        //                    break;
+        //                case MembershipCreateStatus.UserRejected:
+        //                    ltlMessage.Text = "The User cannot be added because the user was rejected.";
+        //                    break;
+        //            }
+        //        }
+        //    }
+    }
+
+    protected void lbUpdate_Click(object sender, EventArgs e)
+    {
+         //UpdateUser(Membership.GetUser(CurrentUserName));
+        UserProfile1.SaveProfile();
+        Response.Write(CurrentUserName);
+    }
+
+    #endregion
+}

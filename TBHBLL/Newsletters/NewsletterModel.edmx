@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NewsletterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="NewsletterModelStoreContainer">
+          <EntitySet Name="tbh_Newsletters" EntityType="NewsletterModel.Store.tbh_Newsletters" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+        </EntityContainer>
+        <EntityType Name="tbh_Newsletters">
+          <Key>
+            <PropertyRef Name="NewsletterID" />
+          </Key>
+          <Property Name="NewsletterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AddedDate" Type="datetime" Nullable="false" />
+          <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="PlainTextBody" Type="ntext" Nullable="false" />
+          <Property Name="HtmlBody" Type="ntext" Nullable="false" />
+          <Property Name="DateSent" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NewsletterModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NewsletterEntities">
+          <EntitySet Name="Newsletters" EntityType="NewsletterModel.Newsletter" />
+        </EntityContainer>
+        <EntityType Name="Newsletter">
+          <Key>
+            <PropertyRef Name="NewsletterID" />
+          </Key>
+          <Property Name="NewsletterID" Type="Int32" Nullable="false" />
+          <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+          <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PlainTextBody" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="HtmlBody" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateSent" Type="DateTime" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NewsletterModelStoreContainer" CdmEntityContainer="NewsletterEntities">
+          <EntitySetMapping Name="Newsletters">
+            <EntityTypeMapping TypeName="IsTypeOf(NewsletterModel.Newsletter)">
+              <MappingFragment StoreEntitySet="tbh_Newsletters">
+                <ScalarProperty Name="NewsletterID" ColumnName="NewsletterID" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="PlainTextBody" ColumnName="PlainTextBody" />
+                <ScalarProperty Name="HtmlBody" ColumnName="HtmlBody" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="NewsletterModel" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="NewsletterModel.Newsletter" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

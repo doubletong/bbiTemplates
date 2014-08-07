@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CalendarofEventsModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="CalendarofEventsEntities">
+    <EntitySet Name="EventInfos" EntityType="CalendarofEventsModel.EventInfo" />
+    <EntitySet Name="EventRSVPs" EntityType="CalendarofEventsModel.EventRSVP" />
+    <AssociationSet Name="FK_EventRSVP_Event" Association="CalendarofEventsModel.FK_EventRSVP_Event">
+      <End Role="tbh_EventInfo" EntitySet="EventInfos" />
+      <End Role="tbh_EventRSVP" EntitySet="EventRSVPs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EventInfo">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="EventTitle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="EventDesc" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="EventDate" Type="DateTime" Nullable="false" />
+    <Property Name="EventEndDate" Type="DateTime" />
+    <Property Name="EventExpires" Type="DateTime" Nullable="false" />
+    <Property Name="EventTime" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="EndTime" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="EventLocation" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="Featured" Type="Boolean" />
+    <Property Name="Duration" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Importance" Type="Int32" Nullable="false" />
+    <Property Name="AllowRegistration" Type="Boolean" Nullable="false" />
+    <Property Name="Attachment" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateUpdated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="EventRSVPs" Relationship="CalendarofEventsModel.FK_EventRSVP_Event" FromRole="tbh_EventInfo" ToRole="tbh_EventRSVP" />
+  </EntityType>
+  <EntityType Name="EventRSVP">
+    <Key>
+      <PropertyRef Name="EventRSVPId" />
+    </Key>
+    <Property Name="EventRSVPId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Organization" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EMail" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NoGuests" Type="Int32" Nullable="false" />
+    <Property Name="GuestNames" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="AttendStatus" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateUpdated" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="EventInfo" Relationship="CalendarofEventsModel.FK_EventRSVP_Event" FromRole="tbh_EventRSVP" ToRole="tbh_EventInfo" />
+  </EntityType>
+  <Association Name="FK_EventRSVP_Event">
+    <End Role="tbh_EventInfo" Type="CalendarofEventsModel.EventInfo" Multiplicity="1" />
+    <End Role="tbh_EventRSVP" Type="CalendarofEventsModel.EventRSVP" Multiplicity="*" />
+  </Association>
+</Schema>

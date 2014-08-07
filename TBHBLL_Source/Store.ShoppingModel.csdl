@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingCart" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="ShoppingEntities">
+    <EntitySet Name="Departments" EntityType="ShoppingCart.Department" />
+    <EntitySet Name="OrderItems" EntityType="ShoppingCart.OrderItem" />
+    <EntitySet Name="Orders" EntityType="ShoppingCart.Order" />
+    <EntitySet Name="OrderStatuses" EntityType="ShoppingCart.OrderStatus" />
+    <EntitySet Name="Products" EntityType="ShoppingCart.Product" />
+    <EntitySet Name="ShippingMethods" EntityType="ShoppingCart.ShippingMethod" />
+    <AssociationSet Name="FK_tbh_Products_tbh_Departments" Association="ShoppingCart.FK_tbh_Products_tbh_Departments">
+      <End Role="tbh_Departments" EntitySet="Departments" />
+      <End Role="tbh_Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbh_OrderItems_tbh_Orders" Association="ShoppingCart.FK_tbh_OrderItems_tbh_Orders">
+      <End Role="tbh_Orders" EntitySet="Orders" />
+      <End Role="tbh_OrderItems" EntitySet="OrderItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Importance" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" DefaultValue="True" />
+    <NavigationProperty Name="Products" Relationship="ShoppingCart.FK_tbh_Products_tbh_Departments" FromRole="tbh_Departments" ToRole="tbh_Products" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="SKU" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="ShoppingCart.FK_tbh_OrderItems_tbh_Orders" FromRole="tbh_OrderItems" ToRole="tbh_Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="ShippingMethod" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Shipping" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ShippingFirstName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingLastName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingStreet" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingPostalCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingCity" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingState" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingCountry" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerEmail" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerPhone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CustomerFax" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ShippedDate" Type="DateTime" />
+    <Property Name="TransactionID" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="TrackingID" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderItems" Relationship="ShoppingCart.FK_tbh_OrderItems_tbh_Orders" FromRole="tbh_Orders" ToRole="tbh_OrderItems" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SKU" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DiscountPercentage" Type="Int32" Nullable="false" />
+    <Property Name="UnitsInStock" Type="Int32" Nullable="false" />
+    <Property Name="SmallImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="FullImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Votes" Type="Int32" Nullable="false" />
+    <Property Name="TotalRating" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="ShoppingCart.FK_tbh_Products_tbh_Departments" FromRole="tbh_Products" ToRole="tbh_Departments" />
+  </EntityType>
+  <EntityType Name="ShippingMethod">
+    <Key>
+      <PropertyRef Name="ShippingMethodID" />
+    </Key>
+    <Property Name="ShippingMethodID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_Products_tbh_Departments">
+    <End Role="tbh_Departments" Type="ShoppingCart.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Products" Type="ShoppingCart.Product" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_tbh_OrderItems_tbh_Orders">
+    <End Role="tbh_Orders" Type="ShoppingCart.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_OrderItems" Type="ShoppingCart.OrderItem" Multiplicity="*" />
+  </Association>
+</Schema>

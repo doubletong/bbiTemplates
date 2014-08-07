@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingCart.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ShoppingCartStoreContainer">
+    <EntitySet Name="store_Photos" EntityType="ShoppingCart.Store.store_Photos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Departments" EntityType="ShoppingCart.Store.tbh_Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_OrderItems" EntityType="ShoppingCart.Store.tbh_OrderItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Orders" EntityType="ShoppingCart.Store.tbh_Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_OrderStatuses" EntityType="ShoppingCart.Store.tbh_OrderStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Products" EntityType="ShoppingCart.Store.tbh_Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_ShippingMethods" EntityType="ShoppingCart.Store.tbh_ShippingMethods" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_store_Photos_tbh_Products" Association="ShoppingCart.Store.FK_store_Photos_tbh_Products">
+      <End Role="tbh_Products" EntitySet="tbh_Products" />
+      <End Role="store_Photos" EntitySet="store_Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbh_OrderItems_tbh_Orders" Association="ShoppingCart.Store.FK_tbh_OrderItems_tbh_Orders">
+      <End Role="tbh_Orders" EntitySet="tbh_Orders" />
+      <End Role="tbh_OrderItems" EntitySet="tbh_OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbh_Products_tbh_Departments" Association="ShoppingCart.Store.FK_tbh_Products_tbh_Departments">
+      <End Role="tbh_Departments" EntitySet="tbh_Departments" />
+      <End Role="tbh_Products" EntitySet="tbh_Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="store_Photos">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Name="PhotoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="Thumbnail" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="OriginalPic" Type="varchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbh_Departments">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Importance" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_OrderItems">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="SKU" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="ShippingMethod" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="Shipping" Type="money" Nullable="false" />
+    <Property Name="ShippingFirstName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ShippingLastName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ShippingStreet" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ShippingPostalCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShippingCity" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ShippingState" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ShippingCountry" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="CustomerEmail" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="CustomerPhone" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CustomerFax" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShippedDate" Type="datetime" />
+    <Property Name="TransactionID" Type="nvarchar" MaxLength="256" />
+    <Property Name="TrackingID" Type="nvarchar" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_OrderStatuses">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="ntext" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="int" Nullable="false" />
+    <Property Name="UnitsInStock" Type="int" Nullable="false" />
+    <Property Name="SmallImageUrl" Type="nvarchar" MaxLength="256" />
+    <Property Name="FullImageUrl" Type="nvarchar" MaxLength="256" />
+    <Property Name="Votes" Type="int" Nullable="false" />
+    <Property Name="TotalRating" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_ShippingMethods">
+    <Key>
+      <PropertyRef Name="ShippingMethodID" />
+    </Key>
+    <Property Name="ShippingMethodID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_store_Photos_tbh_Products">
+    <End Role="tbh_Products" Type="ShoppingCart.Store.tbh_Products" Multiplicity="1" />
+    <End Role="store_Photos" Type="ShoppingCart.Store.store_Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="store_Photos">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbh_OrderItems_tbh_Orders">
+    <End Role="tbh_Orders" Type="ShoppingCart.Store.tbh_Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_OrderItems" Type="ShoppingCart.Store.tbh_OrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="tbh_OrderItems">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbh_Products_tbh_Departments">
+    <End Role="tbh_Departments" Type="ShoppingCart.Store.tbh_Departments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Products" Type="ShoppingCart.Store.tbh_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="tbh_Products">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

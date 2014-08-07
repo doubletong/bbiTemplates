@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NewsletterModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="NewsletterEntities">
+    <EntitySet Name="Newsletters" EntityType="NewsletterModel.Newsletter" />
+  </EntityContainer>
+  <EntityType Name="Newsletter">
+    <Key>
+      <PropertyRef Name="NewsletterID" />
+    </Key>
+    <Property Name="NewsletterID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="PlainTextBody" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="HtmlBody" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateSent" Type="DateTime" Nullable="true" />
+  </EntityType>
+</Schema>

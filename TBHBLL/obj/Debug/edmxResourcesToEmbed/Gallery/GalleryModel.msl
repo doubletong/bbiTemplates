@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BBICMSBLLGalleryStoreContainer" CdmEntityContainer="GalleryEntities">
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="IsTypeOf(BBICMS.BLL.Gallery.Album)">
+        <MappingFragment StoreEntitySet="tbh_Album">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="AlbumDesc" ColumnName="AlbumDesc" />
+          <ScalarProperty Name="AlbumCreateDate" ColumnName="AlbumCreateDate" />
+          <ScalarProperty Name="ParentAlbumID" ColumnName="ParentAlbumID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="IsTypeOf(BBICMS.BLL.Gallery.Picture)">
+        <MappingFragment StoreEntitySet="tbh_Pictures">
+          <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+          <ScalarProperty Name="PictureTitle" ColumnName="PictureTitle" />
+          <ScalarProperty Name="PictureCaption" ColumnName="PictureCaption" />
+          <ScalarProperty Name="PictureCreateDate" ColumnName="PictureCreateDate" />
+          <ScalarProperty Name="PictureFileName" ColumnName="PictureFileName" />
+          <ScalarProperty Name="PictureHighlight" ColumnName="PictureHighlight" />
+          <ScalarProperty Name="PictureViewCount" ColumnName="PictureViewCount" />
+          <ScalarProperty Name="AlbumOrder" ColumnName="AlbumOrder" />
+          <ScalarProperty Name="ThumbWidth" ColumnName="ThumbWidth" />
+          <ScalarProperty Name="ThumbHeight" ColumnName="ThumbHeight" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_Pictures_Album" TypeName="BBICMS.BLL.Gallery.FK_Pictures_Album" StoreEntitySet="tbh_Pictures">
+      <EndProperty Name="tbh_Album">
+        <ScalarProperty Name="AlbumID" ColumnName="PictureAlbumID" />
+      </EndProperty>
+      <EndProperty Name="tbh_Pictures">
+        <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

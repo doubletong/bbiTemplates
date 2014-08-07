@@ -1,0 +1,282 @@
+body {
+	 font: 14px/1.5 "Microsoft YaHei",'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  color:#666;
+}
+a
+{
+    color: #999; text-decoration:none;
+}
+    a:hover
+    {
+        color:#61a3ff
+    }
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+.fr
+{
+    float:right;
+}
+.p15
+{
+    padding:15px;
+}
+.pr50
+{
+    padding-right:50px;
+}
+.mr20
+{
+    margin-right:30px;
+}
+.mb30
+{
+    margin-bottom:30px;
+}
+.mb50
+{
+    margin-bottom:50px;
+}
+.ml20
+{
+    margin-left:20px;
+}
+.ml30{
+    margin-left:30px;
+}
+.wrapper
+{
+    width:960px;
+    margin:0 auto;
+}
+.text-right
+{
+    text-align:right;
+}
+.text-center
+{
+    text-align:center;
+}
+
+.logo
+{
+    padding:10px 0 0; margin-bottom:15px;
+}
+
+.text-info
+{
+    color:#29a9df;
+}
+
+.sider
+{
+    background:#fff url(images/sidebar-bg.png) no-repeat left 0;
+}
+
+#ContentBody
+{
+    min-height:400px;
+}
+
+/* 分页导航 */
+#pagination a, #pagination strong
+{
+    display:block; float:left;padding:4px 6px;border:1px #eee solid;margin-right:5px;
+}
+    #pagination a:hover
+    {
+        background-color:#f5fdff;border:#f5fdff solid 1px;
+    }
+#pagination strong
+{
+    background-color:#29a9df;color:#fff; border:#29a9df 1px solid;
+}
+
+/* 面包屑 */
+.sitepath
+{
+    padding:5px 10px; background-color:#f7f7f7;margin-bottom:20px;
+}
+/* 头部 */
+.page_header
+{
+    background-color:#000;color:#999;
+}
+
+
+/* 头部登录导航 */
+.topnav,#menu ul
+{
+   list-style:none;margin:30px 0 0;padding:0 0 0 18px;
+}
+    .topnav li
+    {
+        display:inline; padding:0 0 0 12px;
+    }
+
+/* 头部菜单 */
+#menu
+{
+    text-align:right;padding-right:18px; border-right:1px #999 solid;
+}
+#menu li
+{
+    display:inline; padding:0 12px;
+}
+    #menu li a
+    {
+        color:#fff;
+    }
+
+
+/* 文章样式 */
+.home_article_box
+{
+    margin-bottom:20px; border-bottom:1px #ccc solid;
+}
+    .home_article_box .abstract
+    {
+        color:#999;
+    }
+
+
+/* 商城样式 */
+.departmentlist
+{
+    margin-bottom:20px;
+}
+    .departmentlist h3
+    {
+        
+    }
+    .departmentlist ul,ul.goodlist,.page_footer ul
+    {
+        list-style:none;margin:0;padding:0;
+    }
+        .departmentlist ul li
+        {
+            margin:0;
+        }
+            .departmentlist ul li a
+            {
+                padding:4px;display:block;
+            }
+            .departmentlist ul li a:hover
+            {
+                background-color:#29a9df;color:#fff;
+            }
+              
+
+ul.goodlist li
+{
+     float:left;margin-right:20px; padding:5px; margin-bottom:50px; border:1px #eee solid;
+}
+    ul.goodlist li h3
+    {
+        font-size:1em;font-weight:normal;margin:0 0 6px;
+    }
+        ul.goodlist li h3 a
+        {
+            color:#666;
+        }
+            ul.goodlist li h3 a:hover
+            {
+                color:#29a9df;
+            }
+
+.shadow
+{
+    position: relative;height:217px;overflow:hidden;
+}
+
+.shadow img
+{
+    opacity:1;
+}
+    .shadow img:hover
+    {
+        opacity:0.5;
+        /* 告诉转换去应用到background-color 属性(看起来像一个CSS 参数，不是吗？ #foreshadowing)*/
+		-webkit-transition-property:opacity;
+        -moz-transition-property:opacity;
+		-o-transition-property:opacity;
+		/* 让它持续两秒钟*/
+		-webkit-transition-duration:1s;
+        -moz-transition-duration:1s;
+		-o-transition-duration:1s;
+    }
+
+.ProductPrice
+{
+    height:40px;position:absolute;bottom:0;z-index:50;width:300px;padding:0 10px; line-height:40px;
+    background:#ddd;text-shadow:1px 1px 1px #fff;
+    opacity:0.9;
+}
+    .ProductPrice:hover
+    {
+        opacity:1;
+      
+		/* 告诉转换去应用到background-color 属性(看起来像一个CSS 参数，不是吗？ #foreshadowing)*/
+		-webkit-transition-property:opacity;
+        -moz-transition-property:opacity;
+		-o-transition-property:opacity;
+		/* 让它持续两秒钟*/
+		-webkit-transition-duration:0.5s;
+        -moz-transition-duration:0.5s;
+		-o-transition-duration:0.5s;
+    }
+
+.title
+{
+    border-bottom:1px #eee solid; padding:6px 0;margin:0;
+}
+.price
+{
+    width:150px;height:150px;line-height:150px;
+    border-radius:50%;
+    background-color:#29a9df;color:#fff;text-align:center;margin:0 auto 30px;
+
+}
+    .price p
+    {
+        font-size:1.4em;
+    }  
+
+
+/* 页脚样式 */
+.page_footer
+{
+    color:#666;background-color:#333;padding-top:15px;padding-bottom:15px;
+}
+    .page_footer nav
+    {
+        padding:0 15px 0 0;
+    }
+    .page_footer li
+    {
+        border-bottom:1px #666 dotted;padding:4px 0
+    }
+     .page_footer a
+        {
+            color:#999;
+        }
+        .page_footer a:hover
+        {
+            color:#29a9df;
+        }

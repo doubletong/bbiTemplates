@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BBICMSPolling.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BBICMSPollingStoreContainer">
+    <EntitySet Name="tbh_PollOptions" EntityType="BBICMSPolling.Store.tbh_PollOptions" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="tbh_Polls" EntityType="BBICMSPolling.Store.tbh_Polls" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_tbh_PollOptions_tbh_Polls" Association="BBICMSPolling.Store.FK_tbh_PollOptions_tbh_Polls">
+      <End Role="tbh_Polls" EntitySet="tbh_Polls" />
+      <End Role="tbh_PollOptions" EntitySet="tbh_PollOptions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbh_PollOptions">
+    <Key>
+      <PropertyRef Name="OptionID" />
+    </Key>
+    <Property Name="OptionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="PollID" Type="int" Nullable="false" />
+    <Property Name="OptionText" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Votes" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Polls">
+    <Key>
+      <PropertyRef Name="PollID" />
+    </Key>
+    <Property Name="PollID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="QuestionText" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="IsCurrent" Type="bit" Nullable="false" />
+    <Property Name="IsArchived" Type="bit" Nullable="false" />
+    <Property Name="ArchivedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_PollOptions_tbh_Polls">
+    <End Role="tbh_Polls" Type="BBICMSPolling.Store.tbh_Polls" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_PollOptions" Type="BBICMSPolling.Store.tbh_PollOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Polls">
+        <PropertyRef Name="PollID" />
+      </Principal>
+      <Dependent Role="tbh_PollOptions">
+        <PropertyRef Name="PollID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

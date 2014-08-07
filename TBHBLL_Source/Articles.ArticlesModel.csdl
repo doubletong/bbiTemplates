@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArticlesModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="ArticlesEntities">
+    <EntitySet Name="Articles" EntityType="ArticlesModel.Article" />
+    <EntitySet Name="Categories" EntityType="ArticlesModel.Category" />
+    <EntitySet Name="Comments" EntityType="ArticlesModel.Comment" />
+    <AssociationSet Name="FK_tbh_Articles_tbh_Categories" Association="ArticlesModel.FK_tbh_Articles_tbh_Categories">
+      <End Role="tbh_Categories" EntitySet="Categories" />
+      <End Role="tbh_Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbh_Comments_tbh_Articles" Association="ArticlesModel.FK_tbh_Comments_tbh_Articles">
+      <End Role="tbh_Articles" EntitySet="Articles" />
+      <End Role="tbh_Comments" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Abstract" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="ReleaseDate" Type="DateTime" />
+    <Property Name="ExpireDate" Type="DateTime" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+    <Property Name="Listed" Type="Boolean" Nullable="false" />
+    <Property Name="CommentsEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="OnlyForMembers" Type="Boolean" Nullable="false" />
+    <Property Name="ViewCount" Type="Int32" Nullable="false" />
+    <Property Name="Votes" Type="Int32" Nullable="false" />
+    <Property Name="TotalRating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="ArticlesModel.FK_tbh_Articles_tbh_Categories" FromRole="tbh_Articles" ToRole="tbh_Categories" />
+    <NavigationProperty Name="Comments" Relationship="ArticlesModel.FK_tbh_Comments_tbh_Articles" FromRole="tbh_Articles" ToRole="tbh_Comments" />
+    <Property Name="Keywords" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Importance" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Articles" Relationship="ArticlesModel.FK_tbh_Articles_tbh_Categories" FromRole="tbh_Categories" ToRole="tbh_Articles" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="AddedByEmail" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="AddedByIP" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="true" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Article" Relationship="ArticlesModel.FK_tbh_Comments_tbh_Articles" FromRole="tbh_Comments" ToRole="tbh_Articles" />
+    <Property Name="Title" Type="String" Nullable="true" />
+    <Property Name="CommenterURL" Type="String" Nullable="true" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_Articles_tbh_Categories">
+    <End Role="tbh_Categories" Type="ArticlesModel.Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Articles" Type="ArticlesModel.Article" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_tbh_Comments_tbh_Articles">
+    <End Role="tbh_Articles" Type="ArticlesModel.Article" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Comments" Type="ArticlesModel.Comment" Multiplicity="*" />
+  </Association>
+</Schema>

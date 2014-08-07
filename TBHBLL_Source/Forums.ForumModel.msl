@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="ForumsModelStoreContainer" CdmEntityContainer="ForumModel">
+    <EntitySetMapping Name="Forums">
+      <EntityTypeMapping TypeName="IsTypeOf(ForumsModel.Forum)">
+        <MappingFragment StoreEntitySet="tbh_Forums">
+          <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Moderated" ColumnName="Moderated" />
+          <ScalarProperty Name="Importance" ColumnName="Importance" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="IsTypeOf(ForumsModel.Post)">
+        <MappingFragment StoreEntitySet="tbh_Posts">
+          <ScalarProperty Name="Sticky" ColumnName="Sticky" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="AddedByIP" ColumnName="AddedByIP" />
+          <ScalarProperty Name="ParentPostID" ColumnName="ParentPostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="ReplyCount" ColumnName="ReplyCount" />
+          <ScalarProperty Name="LastPostBy" ColumnName="LastPostBy" />
+          <ScalarProperty Name="LastPostDate" ColumnName="LastPostDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_tbh_Posts_tbh_Forums" TypeName="ForumsModel.FK_tbh_Posts_tbh_Forums" StoreEntitySet="tbh_Posts">
+      <EndProperty Name="tbh_Forums">
+        <ScalarProperty Name="ForumID" ColumnName="ForumID" />
+      </EndProperty>
+      <EndProperty Name="tbh_Posts">
+        <ScalarProperty Name="PostID" ColumnName="PostID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BBICMS.BLL.Gallery" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="GalleryEntities">
+    <EntitySet Name="Albums" EntityType="BBICMS.BLL.Gallery.Album" />
+    <EntitySet Name="Pictures" EntityType="BBICMS.BLL.Gallery.Picture" />
+    <AssociationSet Name="FK_Pictures_Album" Association="BBICMS.BLL.Gallery.FK_Pictures_Album">
+      <End Role="tbh_Album" EntitySet="Albums" />
+      <End Role="tbh_Pictures" EntitySet="Pictures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Name="AlbumID" Type="Int32" Nullable="false" />
+    <Property Name="AlbumName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AlbumDesc" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+    <Property Name="AlbumCreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="ParentAlbumID" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+    <Property Name="DateUpdated" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Pictures" Relationship="BBICMS.BLL.Gallery.FK_Pictures_Album" FromRole="tbh_Album" ToRole="tbh_Pictures" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="PictureID" />
+    </Key>
+    <Property Name="PictureID" Type="Int32" Nullable="false" />
+    <Property Name="PictureTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PictureCaption" Type="String" MaxLength="2500" Unicode="true" FixedLength="false" />
+    <Property Name="PictureCreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="PictureFileName" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="PictureHighlight" Type="Boolean" />
+    <Property Name="PictureViewCount" Type="Int32" Nullable="false" />
+    <Property Name="AlbumOrder" Type="Int32" Nullable="false" />
+    <Property Name="ThumbWidth" Type="Int32" Nullable="false" />
+    <Property Name="ThumbHeight" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateUpdated" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Album" Relationship="BBICMS.BLL.Gallery.FK_Pictures_Album" FromRole="tbh_Pictures" ToRole="tbh_Album" />
+  </EntityType>
+  <Association Name="FK_Pictures_Album">
+    <End Role="tbh_Album" Type="BBICMS.BLL.Gallery.Album" Multiplicity="1" />
+    <End Role="tbh_Pictures" Type="BBICMS.BLL.Gallery.Picture" Multiplicity="*" />
+  </Association>
+</Schema>

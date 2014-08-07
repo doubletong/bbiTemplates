@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BBICMS.Events.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BLLEventCalendarStoreContainer">
+    <EntitySet Name="tbh_EventInfo" EntityType="BBICMS.Events.Store.tbh_EventInfo" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="tbh_EventRSVP" EntityType="BBICMS.Events.Store.tbh_EventRSVP" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_EventRSVP_Event" Association="BBICMS.Events.Store.FK_EventRSVP_Event">
+      <End Role="tbh_EventInfo" EntitySet="tbh_EventInfo" />
+      <End Role="tbh_EventRSVP" EntitySet="tbh_EventRSVP" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbh_EventInfo">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventTitle" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="EventDesc" Type="ntext" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+    <Property Name="EventEndDate" Type="datetime" />
+    <Property Name="EventExpires" Type="datetime" Nullable="false" />
+    <Property Name="EventTime" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EndTime" Type="nvarchar" MaxLength="20" />
+    <Property Name="EventLocation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nchar" MaxLength="2" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="Featured" Type="bit" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="Importance" Type="int" Nullable="false" />
+    <Property Name="AllowRegistration" Type="bit" Nullable="false" />
+    <Property Name="Attachment" Type="nvarchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_EventRSVP">
+    <Key>
+      <PropertyRef Name="EventRSVPId" />
+    </Key>
+    <Property Name="EventRSVPId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Organization" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoGuests" Type="int" Nullable="false" />
+    <Property Name="GuestNames" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AttendStatus" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_EventRSVP_Event">
+    <End Role="tbh_EventInfo" Type="BBICMS.Events.Store.tbh_EventInfo" Multiplicity="1" />
+    <End Role="tbh_EventRSVP" Type="BBICMS.Events.Store.tbh_EventRSVP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_EventInfo">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="tbh_EventRSVP">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

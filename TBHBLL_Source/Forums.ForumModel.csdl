@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForumsModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="ForumModel">
+    <EntitySet Name="Forums" EntityType="ForumsModel.Forum" />
+    <EntitySet Name="Posts" EntityType="ForumsModel.Post" />
+    <AssociationSet Name="FK_tbh_Posts_tbh_Forums" Association="ForumsModel.FK_tbh_Posts_tbh_Forums">
+      <End Role="tbh_Forums" EntitySet="Forums" />
+      <End Role="tbh_Posts" EntitySet="Posts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Forum">
+    <Key>
+      <PropertyRef Name="ForumID" />
+    </Key>
+    <Property Name="ForumID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Moderated" Type="Boolean" Nullable="false" />
+    <Property Name="Importance" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Posts" Relationship="ForumsModel.FK_tbh_Posts_tbh_Forums" FromRole="tbh_Forums" ToRole="tbh_Posts" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="AddedByIP" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="true" />
+    <Property Name="ParentPostID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+    <Property Name="Closed" Type="Boolean" Nullable="false" />
+    <Property Name="ViewCount" Type="Int32" Nullable="false" />
+    <Property Name="ReplyCount" Type="Int32" Nullable="false" />
+    <Property Name="LastPostBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="LastPostDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="256" Unicode="true" FixedLength="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Forum" Relationship="ForumsModel.FK_tbh_Posts_tbh_Forums" FromRole="tbh_Posts" ToRole="tbh_Forums" />
+    <Property Name="Sticky" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_Posts_tbh_Forums">
+    <End Role="tbh_Forums" Type="ForumsModel.Forum" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Posts" Type="ForumsModel.Post" Multiplicity="*" />
+  </Association>
+</Schema>

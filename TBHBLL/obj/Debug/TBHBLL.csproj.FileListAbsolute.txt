@@ -1,0 +1,17 @@
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\TBHBLL.dll.config
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\TBHBLL.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\TBHBLL.pdb
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\Elmah.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\Joel.Net.Akismet.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\TwitterLib.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\bin\Debug\System.Data.SQLite.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Application Projects\BeerHouse\C\TBHBLL\obj\Debug\TBHBLL.dll
+C:\Application Projects\BeerHouse\C\TBHBLL\obj\Debug\TBHBLL.pdb
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\ResolveAssemblyReference.cache
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\System.Data.SQLite.dll
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.dll.config
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.dll
+D:\website\bbicmsSQL\TBHBLL\bin\Debug\BBICMSBLL.pdb
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\BBICMSBLL.dll
+D:\website\bbicmsSQL\TBHBLL\obj\Debug\BBICMSBLL.pdb

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BBICMSBLLStoreContainer" CdmEntityContainer="SiteMapEntities">
+    <EntitySetMapping Name="SiteMapInfos">
+      <EntityTypeMapping TypeName="IsTypeOf(BBICMS.BLL.SiteMapInfo)">
+        <MappingFragment StoreEntitySet="SiteMap">
+          <ScalarProperty Name="SiteMapId" ColumnName="SiteMapId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="RealURL" ColumnName="RealURL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="URLId" ColumnName="URLId" />
+          <ScalarProperty Name="URLType" ColumnName="URLType" />
+          <ScalarProperty Name="NodeType" ColumnName="NodeType" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

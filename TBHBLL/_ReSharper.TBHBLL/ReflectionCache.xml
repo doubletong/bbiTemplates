@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assemblies Version="805306377">
+  <Assembly Name="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="28c64c9b-73bb-41ad-9a02-d5da45dcbe92" Timestamp="633744722827145865" XmlDocIndexTimestamp="633749202780000000" />
+  <Assembly Name="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="8e961006-24f5-40f9-8a26-750d62e4f328" Timestamp="633744722827301863" XmlDocIndexTimestamp="633749202780000000" />
+  <Assembly Name="System.Data.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="9643ef7a-af5f-40e0-ad1f-1ab695ca6dc0" Timestamp="633744722830265825" XmlDocIndexTimestamp="633407999200000000" />
+  <Assembly Name="System.Runtime.Serialization, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="7b3c11c0-164f-46d0-8fba-9228a4476395" Timestamp="633744722739162993" />
+  <Assembly Name="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="07d89010-4e0f-4c09-ae4c-2ffaf743bc5d" Timestamp="633744722849921573" XmlDocIndexTimestamp="633749202800000000" />
+</Assemblies>

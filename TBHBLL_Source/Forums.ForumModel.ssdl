@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForumsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="ForumsModelStoreContainer">
+    <EntitySet Name="tbh_Forums" EntityType="ForumsModel.Store.tbh_Forums" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbh_Posts" EntityType="ForumsModel.Store.tbh_Posts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbh_Posts_tbh_Forums" Association="ForumsModel.Store.FK_tbh_Posts_tbh_Forums">
+      <End Role="tbh_Forums" EntitySet="tbh_Forums" />
+      <End Role="tbh_Posts" EntitySet="tbh_Posts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbh_Forums">
+    <Key>
+      <PropertyRef Name="ForumID" />
+    </Key>
+    <Property Name="ForumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Moderated" Type="bit" Nullable="false" />
+    <Property Name="Importance" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbh_Posts">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="AddedByIP" Type="nchar" Nullable="false" MaxLength="15" />
+    <Property Name="ForumID" Type="int" Nullable="false" />
+    <Property Name="ParentPostID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Body" Type="ntext" Nullable="false" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+    <Property Name="Sticky" Type="bit" Nullable="false" />
+    <Property Name="Closed" Type="bit" Nullable="false" />
+    <Property Name="ViewCount" Type="int" Nullable="false" />
+    <Property Name="ReplyCount" Type="int" Nullable="false" />
+    <Property Name="LastPostBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LastPostDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nchar" MaxLength="256" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbh_Posts_tbh_Forums">
+    <End Role="tbh_Forums" Type="ForumsModel.Store.tbh_Forums" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbh_Posts" Type="ForumsModel.Store.tbh_Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbh_Forums">
+        <PropertyRef Name="ForumID" />
+      </Principal>
+      <Dependent Role="tbh_Posts">
+        <PropertyRef Name="ForumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

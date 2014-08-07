@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="NewsletterModelStoreContainer" CdmEntityContainer="NewsletterEntities">
+    <EntitySetMapping Name="Newsletters">
+      <EntityTypeMapping TypeName="IsTypeOf(NewsletterModel.Newsletter)">
+        <MappingFragment StoreEntitySet="tbh_Newsletters">
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="NewsletterID" ColumnName="NewsletterID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="PlainTextBody" ColumnName="PlainTextBody" />
+          <ScalarProperty Name="HtmlBody" ColumnName="HtmlBody" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

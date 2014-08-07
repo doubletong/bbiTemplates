@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BLL.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="BLLStoreContainer">
+    <EntitySet Name="SiteMap" EntityType="BLL.Store.SiteMap" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="SiteMap">
+    <Key>
+      <PropertyRef Name="SiteMapId" />
+    </Key>
+    <Property Name="SiteMapId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="RealURL" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Roles" Type="nvarchar" MaxLength="100" />
+    <Property Name="Parent" Type="int" Nullable="false" />
+    <Property Name="URLId" Type="int" Nullable="false" />
+    <Property Name="URLType" Type="nvarchar" MaxLength="50" />
+    <Property Name="NodeType" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema>
